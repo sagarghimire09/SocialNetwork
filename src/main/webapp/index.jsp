@@ -13,11 +13,11 @@
     <meta charset="utf-8">
     <title>Facebook Theme Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="resources/css/bootstrap.css" rel="stylesheet"/>
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href="css/facebook.css" rel="stylesheet"/>
+    <link href="resources/css/facebook.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -120,13 +120,13 @@
                             <div class="col-sm-5">
 
                                 <div class="panel panel-default">
-                                    <div class="panel-thumbnail"><img src="assets/img/bg_5.jpg" class="img-responsive"></div>
+                                    <div class="panel-thumbnail"><img src="resources/img/bg_5.jpg" class="img-responsive"></div>
                                     <div class="panel-body">
                                         <p class="lead">Urbanization</p>
                                         <p>45 Followers, 13 Posts</p>
 
                                         <p>
-                                            <img src="assets/img/uFp_tsTJboUY7kue5XAsGAs28.png" height="28px" width="28px">
+                                            <img src="resources/img/uFp_tsTJboUY7kue5XAsGAs28.png" height="28px" width="28px">
                                         </p>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>More Templates</h4></div>
                                     <div class="panel-body">
-                                        <img src="assets/img/150x150.gif" class="img-circle pull-right"> <a href="#">Free @Bootply</a>
+                                        <img src="resources/img/150x150.gif" class="img-circle pull-right"> <a href="#">Free @Bootply</a>
                                         <div class="clearfix"></div>
                                         There a load of new free Bootstrap 3
                                         ready templates at Bootply. All of these templates are free and don't
@@ -197,7 +197,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply Editor &amp; Code Library</h4></div>
                                     <div class="panel-body">
-                                        <p><img src="assets/img/150x150.gif" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
+                                        <p><img src="resources/img/150x150.gif" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
                                         <div class="clearfix"></div>
                                         <hr>
                                         Design, build, test, and prototype
@@ -211,7 +211,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Stackoverflow</h4></div>
                                     <div class="panel-body">
-                                        <img src="assets/img/150x150.gif" class="img-circle pull-right"> <a href="#">Keyword: Bootstrap</a>
+                                        <img src="resources/img/150x150.gif" class="img-circle pull-right"> <a href="#">Keyword: Bootstrap</a>
                                         <div class="clearfix"></div>
                                         <hr>
 
@@ -242,15 +242,15 @@
                                 </div>
 
                                 <div class="panel panel-default">
-                                    <div class="panel-thumbnail"><img src="assets/img/bg_4.jpg" class="img-responsive"></div>
+                                    <div class="panel-thumbnail"><img src="resources/img/bg_4.jpg" class="img-responsive"></div>
                                     <div class="panel-body">
                                         <p class="lead">Social Good</p>
                                         <p>1,200 Followers, 83 Posts</p>
 
                                         <p>
-                                            <img src="assets/img/photo.jpg" height="28px" width="28px">
-                                            <img src="assets/img/photo.png" height="28px" width="28px">
-                                            <img src="assets/img/photo_002.jpg" height="28px" width="28px">
+                                            <img src="resources/img/photo.jpg" height="28px" width="28px">
+                                            <img src="resources/img/photo.png" height="28px" width="28px">
+                                            <img src="resources/img/photo_002.jpg" height="28px" width="28px">
                                         </p>
                                     </div>
                                 </div>
@@ -319,8 +319,8 @@
     </div>
 </div>
 
-<script type="text/javascript" src="assets/js/jquery.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="resources/js/jquery.js"></script>
+<script type="text/javascript" src="resources/js/bootstrap.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('[data-toggle=offcanvas]').click(function() {
