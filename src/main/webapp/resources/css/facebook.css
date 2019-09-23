@@ -5,6 +5,35 @@ html, body {
    color:#555555;
 }
 
+
+/* Added by Chinedu starts*/
+#main .img-display {
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+}
+
+#main .img-span {
+    margin: 2%;
+    display: inline-block;
+}
+
+#main .img-responsive {
+    width: 100%;
+    height: 400px;
+}
+
+#main .active-now {
+    background: rgb(66, 183, 42);
+    border-radius: 50%;
+    display: inline-block;
+    height: 6px;
+    margin-left: 4px;
+    width: 6px;
+}
+
+/* Added by Chinedu ends*/
+
 .nav {
    font-family:Arial,sans-serif;
    font-size:13px;
@@ -103,6 +132,8 @@ hr {
    height:70px;
    width:70px;
 }
+
+
 
 #sidebar {
     padding:0px;
