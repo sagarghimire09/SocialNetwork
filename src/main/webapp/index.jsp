@@ -21,11 +21,19 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 <%--<%--%>
 <%--        if(session.getAttribute("email") == null){--%>
 <%--        response.sendRedirect("login.jsp");--%>
 <%--    }--%>
 <%--%>--%>
+=======
+<%
+    if(session.getAttribute("email") == null){
+        response.sendRedirect("login");
+    }
+%>
+>>>>>>> master
 <div class="wrapper">
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">

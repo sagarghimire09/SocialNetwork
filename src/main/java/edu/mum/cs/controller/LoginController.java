@@ -2,6 +2,7 @@ package edu.mum.cs.controller;
 
 import edu.mum.cs.util.DbConnect;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,5 +41,11 @@ public class LoginController extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+        rd.forward(req, resp);
     }
 }
