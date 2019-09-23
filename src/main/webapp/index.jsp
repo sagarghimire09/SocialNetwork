@@ -22,9 +22,9 @@
 
 <body>
 <%
-    //    if(session.getAttribute("email") == null){
-//        response.sendRedirect("login.jsp");
-//    }
+    if(session.getAttribute("email") == null){
+        response.sendRedirect("login");
+    }
 %>
 <div class="wrapper">
     <div class="box">
