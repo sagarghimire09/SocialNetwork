@@ -23,7 +23,7 @@
 <body>
 <%
     if(session.getAttribute("email") == null){
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("login");
     }
 %>
 <div class="wrapper">
