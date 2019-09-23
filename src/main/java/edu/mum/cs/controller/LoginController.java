@@ -19,10 +19,12 @@ public class LoginController extends HttpServlet {
     String url = "jdbc:mysql://localhost:3306/socialdb";
     String username = "sagar-sys";
     String pass = "test1234";
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
+
         // db conn
         try {
             Connection conn = new DbConnect().getConnect();
