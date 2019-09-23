@@ -1,12 +1,23 @@
 package edu.mum.cs.model;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "users")
 public class User {
-    int userId;
-    String firstName;
-    String lastName;
-    String email;
-    String password;
-    boolean status;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int userId;
+    @Column(nullable = false)
+    private String firstName;
+    @Column(nullable = false)
+    private String lastName;
+    @Column(nullable = false, unique = true)
+    private String email;
+    private String password;
+    private boolean status;
+    private List<Follower> followers;
 
     public int getUserId() {
         return userId;

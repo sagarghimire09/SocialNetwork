@@ -13,13 +13,13 @@
 
     <ul class="nav hidden-xs" id="lg-menu">
         <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Ads</a></li>
-        <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Post</a></li>
-        <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> User</a></li>
-        <li><a href="#"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
+        <li><a href="post"><i class="glyphicon glyphicon-list"></i> Post</a></li>
+        <li><a href="user"><i class="glyphicon glyphicon-paperclip"></i> User</a></li>
+        <li><a href="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
     </ul>
     <ul class="list-unstyled hidden-xs" id="sidebar-footer">
         <li>
-            <a href="http://usebootstrap.com/theme/facebook"><h3>Social</h3> <i class="glyphicon glyphicon-heart-empty"></i> Network</a>
+            <a href="#"><h3>Social</h3> <i class="glyphicon glyphicon-heart-empty"></i> Network</a>
         </li>
     </ul>
 
