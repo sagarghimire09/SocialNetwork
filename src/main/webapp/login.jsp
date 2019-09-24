@@ -18,7 +18,7 @@
 <body>
 
 <div class="limiter">
-    <div class="container-login100">
+    <div class="container-login100" style="background: #eae5f3">
         <div class="wrap-login100">
             <form action="login" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">

@@ -20,6 +20,14 @@ public class LoginController extends HttpServlet {
     String username = "sagar-sys";
     String pass = "test1234";
 
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+        rd.forward(req, resp);
+    }
+
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
@@ -43,9 +51,4 @@ public class LoginController extends HttpServlet {
         }
     }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-        rd.forward(req, resp);
-    }
 }

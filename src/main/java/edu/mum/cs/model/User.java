@@ -17,6 +17,7 @@ public class User {
     private String email;
     private String password;
     private boolean status;
+
     private List<Follower> followers;
 
     public int getUserId() {
