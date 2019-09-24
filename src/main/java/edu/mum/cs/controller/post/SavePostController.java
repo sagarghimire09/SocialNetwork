@@ -19,10 +19,10 @@ public class SavePostController extends HttpServlet {
         String body = req.getParameter("body");
         String image = req.getParameter("image");
         System.out.println(body);
-//        Post post = new Post();
-//        post.setBody(body);
-//        post.setImage(image);
-//        postService.savePost(post);
+        Post post = new Post();
+        post.setPostBody(body);
+        post.setPostImage(image);
+        postService.savePost(post);
         resp.sendRedirect("/index.jsp");
     }
 }

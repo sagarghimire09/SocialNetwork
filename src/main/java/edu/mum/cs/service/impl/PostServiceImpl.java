@@ -17,8 +17,13 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Long savePost(Post post) {
-        return postDao.savePost(post);
+    public void deletePost(Long id) {
+
+    }
+
+    @Override
+    public List<Post> findAllPost() {
+        return null;
     }
 
     @Override
@@ -27,12 +32,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePost(Long id) {
-
-    }
-
-    @Override
-    public List<Post> findAllPost() {
-        return null;
+    public Long savePost(Post post) {
+        return postDao.savePost(post);
     }
 }

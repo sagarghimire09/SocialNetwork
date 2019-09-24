@@ -11,34 +11,35 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
     private String postBody;
-    private String imagePath;
+    private String postImage;
     @CreationTimestamp
     private LocalDate createdAt;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-//    private User user;
-
-    public Long getId() {
+    public Long getPostId() {
         return postId;
     }
 
-    public void setId(Long id) {
-        this.postId = id;
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
-    public String getBody() {
+    public String getPostBody() {
         return postBody;
     }
 
-    public void setBody(String postBody) {
+    public void setPostBody(String postBody) {
         this.postBody = postBody;
     }
 
-    public String getImage() {
-        return imagePath;
+    public String getPostImage() {
+        return postImage;
     }
 
-    public void setImage(String imagePath) {
-        this.imagePath = imagePath;
+    public void setPostImage(String postImage) {
+        this.postImage = postImage;
     }
 
     public LocalDate getCreatedAt() {
@@ -47,5 +48,13 @@ public class Post {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

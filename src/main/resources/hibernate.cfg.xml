@@ -20,6 +20,7 @@
 
         <!-- Resource Mapping -->
         <mapping class="edu.mum.cs.model.Post"/>
+        <mapping class="edu.mum.cs.model.User"/>
 
     </session-factory>
 </hibernate-configuration>
