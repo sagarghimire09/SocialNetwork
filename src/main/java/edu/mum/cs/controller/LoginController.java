@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
             session.setAttribute("loggedInUser", user);
             resp.sendRedirect("home");
         } else{
-            RequestDispatcher rd = req.getRequestDispatcher("login");
+            RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
             rd.forward(req, resp);
         }
 

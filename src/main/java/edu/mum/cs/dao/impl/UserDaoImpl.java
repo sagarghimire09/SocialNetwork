@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByEmail(String email) {
         Session session = sessionFactory.openSession();
-        User user = session.get(User.class, email);
+        User user = (User) session.createQuery("from User where email='"+email+"'").getSingleResult();
         session.close();
         return user;
     }
