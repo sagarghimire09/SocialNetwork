@@ -21,11 +21,11 @@
 </head>
 
 <body>
-<%
+<%--
     if(session.getAttribute("email") == null){
         response.sendRedirect("login.jsp");
     }
-%>
+--%>
 <div class="wrapper">
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
@@ -76,12 +76,14 @@
                             <div class="col-sm-7">
 
                                 <div class="well">
-                                    <form class="form-horizontal" role="form">
+                                    <form class="form-horizontal" role="form" action="post/newPost" method="post" enctype="multipart/form-data">
                                         <h4>What's New</h4>
                                         <div class="form-group" style="padding:14px;">
-                                            <textarea class="form-control" placeholder="Update your status"></textarea>
+                                            <textarea class="form-control" name="body" placeholder="Update your status"></textarea>
                                         </div>
-                                        <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                                        <button class="btn btn-primary pull-right" type="submit">Post</button>
+                                        <ul class="list-inline"><li><label for="file-upload" class="custom-file-upload"><i class="glyphicon glyphicon-upload"></i></label><input id="file-upload" type="file" name="image"/></li>
+                                        <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
                                     </form>
                                 </div>
 
@@ -130,29 +132,7 @@
 
 
 <!--post modal-->
-<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                Update Status
-            </div>
-            <div class="modal-body">
-                <form class="form center-block">
-                    <div class="form-group">
-                        <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <div>
-                    <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-                    <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<%@ include file="partials/postmodal.jsp" %>
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/bootstrap.js"></script>
