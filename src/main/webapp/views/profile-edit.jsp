@@ -71,29 +71,50 @@
                             <!-- main col left -->
                             <div class="col-sm-7">
 
-                                <div class="well">
-                                    <form class="form-horizontal" role="form">
-                                        <h4>Change Profile Photo</h4>
-                                        <div class="form-group" style="padding:14px;">
-                                            <input type="file" name="profilePhoto">
-                                        </div>
-                                        <button class="btn btn-primary pull-right" type="button">Post</button><ul class="list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-                                    </form>
-                                </div>
 
                                 <div class="well">
-                                    <form class="form">
-                                        <h4>Per</h4>
-                                        <div class="input-group text-center">
-                                            <input class="form-control" placeholder="Your Firstname" type="text">
-                                            <input class="form-control" placeholder="Your Lastname" type="text">
-                                            <input class="form-control" placeholder="Your Workplace" type="text">
-                                            <input class="form-control" placeholder="Your Designation" type="text">
-                                            <input type="radio" name="gender" value="male"> Male
-                                            <input type="radio" name="gender" value="female"> Female
-                                            <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
+
+
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="exampleInputFname">First Name</label>
+                                            <input type="text" class="form-control" id="exampleInputFname" name="firstName"  placeholder="Enter First Name">
                                         </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputLastName">Last Name</label>
+                                            <input type="text" class="form-control" id="exampleInputLastName" name="lastName"  placeholder="Enter Last Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputWorkplace">WorkPlace</label>
+                                            <input type="text" class="form-control" id="exampleInputWorkplace" name="workplace"  placeholder="Enter Your Workplace">
+                                        </div>
+                                        <div class="form-group" >
+                                            <label for="exampleInputDesignation">Designation</label>
+                                            <input type="text" class="form-control" id="exampleInputDesignation" name="designation"  placeholder="Enter your Position">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="exampleInputDate" class="col-2 col-form-label">Date Of Birth</label>
+                                            <div class="col-10">
+                                                <input class="form-control" type="date" name="birthDate" id="exampleInputDate">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="exampleInputUploadPhoto">Upload Picture</label>
+                                            <input type="file" class="form-control-file" name="profilePicture" id="exampleInputUploadPhoto">
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <label for="inlineRadio1">Gender</label>
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1">
+                                            <label class="form-check-label" for="inlineRadio1">Male</label>
+
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Female</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update Profile</button>
                                     </form>
+
                                 </div>
 
                             </div>
