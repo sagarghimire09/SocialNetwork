@@ -15,6 +15,7 @@ public class Post {
     private String postImage;
     @CreationTimestamp
     private LocalDate createdAt;
+    private boolean status;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -49,6 +50,14 @@ public class Post {
 
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public User getUser() {

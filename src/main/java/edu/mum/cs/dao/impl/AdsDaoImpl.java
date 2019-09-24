@@ -1,7 +1,7 @@
 package edu.mum.cs.dao.impl;
 
-import edu.mum.cs.dao.UserDao;
-import edu.mum.cs.model.User;
+import edu.mum.cs.dao.AdsDao;
+import edu.mum.cs.model.Ads;
 import edu.mum.cs.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,55 +9,50 @@ import org.hibernate.Transaction;
 
 import java.util.List;
 
-public class UserDaoImpl implements UserDao {
-
+public class AdsDaoImpl implements AdsDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-
     @Override
-    public User findUserById(Long id) {
+    public Ads findAdsById(Long id) {
         Session session = sessionFactory.openSession();
-        User user = session.get(User.class, id);
+        Ads ads = session.get(Ads.class, id);
         session.close();
-        return user;
+        return ads;
     }
 
     @Override
-    public User getUserByEmail(String email) {
-        Session session = sessionFactory.openSession();
-        User user = (User) session.createQuery("from User where email='"+email+"'").getSingleResult();
-        session.close();
-        return user;
-    }
-
-    @Override
-    public Long saveUser(User user) {
+    public Long saveAds(Ads ads) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Long id = (Long)session.save(user);
+        Long id = (Long)session.save(ads);
         transaction.commit();
         session.close();
         return id;
     }
 
     @Override
-    public void updateUser(User user) {
+    public void updateAds(Ads ads) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        session.update(user);
+        session.update(ads);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void deleteUser(Long id) {
-
+    public void deleteAds(Long id) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Ads ads = session.get(Ads.class, id);
+        session.delete(ads);
+        transaction.commit();
+        session.close();
     }
 
     @Override
-    public List<User> findAllUser() {
+    public List<Ads> findAllAds() {
         Session session = sessionFactory.openSession();
-        List<User> userList = session.createQuery("from User where role != 'ROLE_ADMIN'").list();
+        List<Ads> adsList = session.createQuery("from Ads").list();
         session.close();
-        return userList;
+        return adsList;
     }
 }

@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateUser(User user) {
-
+        userDao.updateUser(user);
     }
 
     @Override
@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAllPost() {
-        return null;
+    public List<User> findAllUser() {
+        return userDao.findAllUser();
     }
 
     @Override

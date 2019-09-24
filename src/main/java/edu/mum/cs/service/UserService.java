@@ -9,6 +9,6 @@ public interface UserService {
     Long saveUser(User user);
     void updateUser(User user);
     void deleteUser(Long id);
-    List<User> findAllPost();
+    List<User> findAllUser();
     User authenticate(User user);
 }
