@@ -4,6 +4,7 @@ import edu.mum.cs.model.User;
 import edu.mum.cs.service.UserService;
 import edu.mum.cs.service.impl.UserServiceImpl;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +22,14 @@ public class RegisterController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String gender = req.getParameter("gender");
-        User user = new User(firstName, lastName, email, password, gender, true);
+        User user = new User(firstName, lastName, email, password, gender, true, "ROLE_USER");
         userService.saveUser(user);
         resp.sendRedirect("login");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
+        rd.forward(req, resp);
     }
 }

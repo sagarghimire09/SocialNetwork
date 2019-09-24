@@ -17,6 +17,7 @@ public class User {
     private String email;
     private String password;
     private boolean status;
+    private String role;
     private String gender;
     private String workplace;
     private String designation;
@@ -31,13 +32,14 @@ public class User {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, String gender, boolean status) {
+    public User(String firstName, String lastName, String email, String password, String gender, boolean status, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.gender = gender;
         this.status = status;
+        this.role = role;
     }
 
     public Long getUserId() {
@@ -86,6 +88,14 @@ public class User {
 
     public void setStatus(boolean status) {
         this.status = status;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public String getGender() {

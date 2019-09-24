@@ -21,11 +21,7 @@
 </head>
 
 <body>
-<%--
-    if(session.getAttribute("email") == null){
-        response.sendRedirect("login.jsp");
-    }
---%>
+
 <div class="wrapper">
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
@@ -76,13 +72,13 @@
                             <div class="col-sm-7">
 
                                 <div class="well">
-                                    <form class="form-horizontal" role="form" action="post/newPost" method="post" enctype="multipart/form-data">
+                                    <form class="form-horizontal" action="savePost" method="post" enctype="multipart/form-data">
                                         <h4>What's New</h4>
                                         <div class="form-group" style="padding:14px;">
-                                            <textarea class="form-control" name="body" placeholder="Update your status"></textarea>
+                                            <textarea class="form-control" name="postBody" placeholder="Update your status"></textarea>
                                         </div>
                                         <button class="btn btn-primary pull-right" type="submit">Post</button>
-                                        <ul class="list-inline"><li><label for="file-upload" class="custom-file-upload"><i class="glyphicon glyphicon-upload"></i></label><input id="file-upload" type="file" name="image"/></li>
+                                        <ul class="list-inline"><li><label for="file-upload" class="custom-file-upload"><i class="glyphicon glyphicon-upload"></i></label><input id="file-upload" type="file" name="postImage"/></li>
                                         <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
                                     </form>
                                 </div>
