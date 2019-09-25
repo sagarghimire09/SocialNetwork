@@ -5,6 +5,7 @@
   Time: 11:02 PM
   To change this template use File | Settings | File Templates.
 --%>
+<c:if test="${loggedInUser.role == 'ROLE_ADMIN'}">
 <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
     <ul class="nav">
@@ -24,3 +25,4 @@
     </ul>
 
 </div>
+</c:if>

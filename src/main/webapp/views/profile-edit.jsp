@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +41,7 @@
 
                         <!-- content -->
                         <div class="row">
-                            <%--                            added--%>
+
                             <div class="timeline-cover">
                                 <!--Timeline Menu for Large Screens-->
                                 <div class="timeline-nav-bar hidden-sm hidden-xs">
@@ -47,8 +49,8 @@
                                         <div class="col-md-3">
                                             <div class="profile-info">
                                                 <img src="resources/img/user.jpg" alt="" class="profile-photo">
-                                                <h3>Sarah Cruiz</h3>
-                                                <p class="text-muted">Creative Director</p>
+                                                <h3>${loggedInUser.firstName} ${loggedInUser.lastName}</h3>
+                                                <p class="text-muted">${loggedInUser.designation}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
@@ -59,7 +61,8 @@
                                                 <li><a href="timeline-friends.html">Friends</a></li>
                                             </ul>
                                             <ul class="follow-me list-inline">
-                                                <li>1,299 people following her</li>
+                                                <li>${loggedInUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
+                                                    <c:otherwise>Her</c:otherwise></c:choose></li>
                                                 <li><button class="btn-primary">Follow Her</button></li>
                                             </ul>
                                         </div>
@@ -67,35 +70,32 @@
                                 </div>
                                 <!--Timeline Menu for Large Screens End-->
                             </div>
-                            <%--                            end added--%>
+
                             <!-- main col left -->
                             <div class="col-sm-7">
-
-
                                 <div class="well">
-
-
-                                    <form>
+                                    <form action="profile-edit" method="post">
+                                        <input type="hidden" name="userId" value="${loggedInUser.userId}">
                                         <div class="form-group">
                                             <label for="exampleInputFname">First Name</label>
-                                            <input type="text" class="form-control" id="exampleInputFname" name="firstName"  placeholder="Enter First Name">
+                                            <input type="text" class="form-control" id="exampleInputFname" name="firstName" value="${loggedInUser.firstName}" placeholder="First Name">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputLastName">Last Name</label>
-                                            <input type="text" class="form-control" id="exampleInputLastName" name="lastName"  placeholder="Enter Last Name">
+                                            <input type="text" class="form-control" id="exampleInputLastName" name="lastName" value="${loggedInUser.lastName}" placeholder="Last Name">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputWorkplace">WorkPlace</label>
-                                            <input type="text" class="form-control" id="exampleInputWorkplace" name="workplace"  placeholder="Enter Your Workplace">
+                                            <input type="text" class="form-control" id="exampleInputWorkplace" name="workplace" value="${loggedInUser.workplace}" placeholder="Your Workplace">
                                         </div>
                                         <div class="form-group" >
                                             <label for="exampleInputDesignation">Designation</label>
-                                            <input type="text" class="form-control" id="exampleInputDesignation" name="designation"  placeholder="Enter your Position">
+                                            <input type="text" class="form-control" id="exampleInputDesignation" name="designation" value="${loggedInUser.designation}" placeholder="Your Position">
                                         </div>
                                         <div class="form-group row">
                                             <label for="exampleInputDate" class="col-2 col-form-label">Date Of Birth</label>
                                             <div class="col-10">
-                                                <input class="form-control" type="date" name="birthDate" id="exampleInputDate">
+                                                <input class="form-control" type="date" name="birthDate" value="${loggedInUser.birthDate}" id="exampleInputDate">
                                             </div>
                                         </div>
 
@@ -105,12 +105,12 @@
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <label for="inlineRadio1">Gender</label>
-                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1">
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" <c:if test="${loggedInUser.gender == 'male'}">checked</c:if>>
                                             <label class="form-check-label" for="inlineRadio1">Male</label>
-
-                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="option2">
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female" <c:if test="${loggedInUser.gender == 'female'}">checked</c:if>>
                                             <label class="form-check-label" for="inlineRadio2">Female</label>
+                                            <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="other" <c:if test="${loggedInUser.gender == 'other'}">checked</c:if>>
+                                            <label class="form-check-label" for="inlineRadio3">Other</label>
                                         </div>
                                         <button type="submit" class="btn btn-primary">Update Profile</button>
                                     </form>
