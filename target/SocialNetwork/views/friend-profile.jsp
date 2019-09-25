@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: Sagar
-  Date: 09/22/19
-  Time: 9:18 PM
+  Date: 09/24/19
+  Time: 10:15 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -41,7 +41,7 @@
 
                         <!-- content -->
                         <div class="row">
-<%--                            added--%>
+                            <%--                            added--%>
                             <div class="timeline-cover">
                                 <!--Timeline Menu for Large Screens-->
                                 <div class="timeline-nav-bar hidden-sm hidden-xs">
@@ -49,8 +49,8 @@
                                         <div class="col-md-3">
                                             <div class="profile-info">
                                                 <img src="resources/img/user.jpg" alt="" class="img-responsive profile-photo">
-                                                <h3>${loggedInUser.firstName} ${loggedInUser.lastName}</h3>
-                                                <p class="text-muted">${loggedInUser.designation}</p>
+                                                <h3>${friendUser.firstName} ${friendUser.lastName}</h3>
+                                                <p class="text-muted">Creative Director</p>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
@@ -63,14 +63,20 @@
                                             <ul class="follow-me list-inline">
                                                 <li>${loggedInUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
                                                     <c:otherwise>Her</c:otherwise></c:choose></li>
-                                                <li><button class="btn-primary">Follow Her</button></li>
+                                                <li><form action="follow" method="post">
+                                                    <input type="hidden" name="userId" value="${loggedInUser.userId}">
+                                                    <input type="hidden" name="followingId" value="${friendUser.userId}">
+                                                    <button class="btn-primary" type="submit">Follow <c:choose>
+                                                        <c:when test="${friendUser.gender == 'male'}">Him</c:when><c:otherwise>Her</c:otherwise>
+                                                    </c:choose></button>
+                                                </form></li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                                 <!--Timeline Menu for Large Screens End-->
                             </div>
-<%--                            end added--%>
+                            <%--                            end added--%>
                             <!-- main col left -->
                             <div class="col-sm-7">
 
@@ -82,7 +88,7 @@
                                         </div>
                                         <button class="btn btn-primary pull-right" type="submit">Post</button>
                                         <ul class="list-inline"><li><label for="file-upload" class="custom-file-upload"><i class="glyphicon glyphicon-upload"></i></label><input id="file-upload" type="file" name="postImage"/></li>
-                                        <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                                            <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
                                     </form>
                                 </div>
 
@@ -149,4 +155,3 @@
 </script>
 </body>
 </html>
-

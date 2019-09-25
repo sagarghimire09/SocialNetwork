@@ -1,6 +1,7 @@
 package edu.mum.cs.model;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class User implements Serializable {
     private String gender;
     private String workplace;
     private String designation;
+    private LocalDate birthDate;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "follower_id"))
@@ -125,6 +128,14 @@ public class User implements Serializable {
 
     public void setDesignation(String designation) {
         this.designation = designation;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public List<User> getFollowers() {

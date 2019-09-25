@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +49,8 @@
                                         <div class="col-md-3">
                                             <div class="profile-info">
                                                 <img src="resources/img/user.jpg" alt="" class="img-responsive profile-photo">
-                                                <h3>Sarah Cruiz</h3>
-                                                <p class="text-muted">Creative Director</p>
+                                                <h3>${loggedInUser.firstName} ${loggedInUser.lastName}</h3>
+                                                <p class="text-muted">${loggedInUser.designation}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
@@ -59,7 +61,8 @@
                                                 <li><a href="timeline-friends.html">Friends</a></li>
                                             </ul>
                                             <ul class="follow-me list-inline">
-                                                <li>1,299 people following her</li>
+                                                <li>${loggedInUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
+                                                    <c:otherwise>Her</c:otherwise></c:choose></li>
                                                 <li><button class="btn-primary">Follow Her</button></li>
                                             </ul>
                                         </div>

@@ -1,7 +1,10 @@
 package edu.mum.cs.controller;
 
+import edu.mum.cs.model.Ads;
 import edu.mum.cs.model.User;
+import edu.mum.cs.service.AdsService;
 import edu.mum.cs.service.UserService;
+import edu.mum.cs.service.impl.AdsServiceImpl;
 import edu.mum.cs.service.impl.UserServiceImpl;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -33,6 +36,7 @@ import java.util.List;
 public class HomeController extends HttpServlet {
     private final static String UPLOAD_DIRECTORY = "/resources/fileUpload";
     UserService userService = new UserServiceImpl();
+    AdsService adsService = new AdsServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -40,7 +44,10 @@ public class HomeController extends HttpServlet {
 
         User userLoggedIn = (User) session.getAttribute("loggedInUser");
         User userPosting = userService.findUserById(userLoggedIn.getUserId());
+        List<Ads> adsList = adsService.findAllAds();
 
+
+        request.setAttribute("adverts", adsList);
         session.setAttribute("posted", userPosting);
         session.setAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
