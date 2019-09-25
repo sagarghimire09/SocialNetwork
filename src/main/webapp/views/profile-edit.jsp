@@ -21,11 +21,7 @@
 </head>
 
 <body>
-<%--
-    if(session.getAttribute("email") == null){
-        response.sendRedirect("login.jsp");
-    }
---%>
+
 <div class="wrapper">
     <div class="box">
         <div class="row row-offcanvas row-offcanvas-left">
@@ -50,7 +46,7 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="profile-info">
-                                                <img src="resources/img/user.jpg" alt="" class="img-responsive profile-photo">
+                                                <img src="resources/img/user.jpg" alt="" class="profile-photo">
                                                 <h3>Sarah Cruiz</h3>
                                                 <p class="text-muted">Creative Director</p>
                                             </div>

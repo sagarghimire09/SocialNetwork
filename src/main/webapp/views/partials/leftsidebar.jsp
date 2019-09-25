@@ -11,6 +11,13 @@
         <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
     </ul>
 
+                <p>
+                      <span class="img-span">
+                       <img src="resources/img/TM.jpg" class="img-display">
+                          <a href="#">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
+                      </span>
+                </p>
+
     <ul class="nav hidden-xs" id="lg-menu">
         <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Ads</a></li>
         <li><a href="post"><i class="glyphicon glyphicon-list"></i> Post</a></li>

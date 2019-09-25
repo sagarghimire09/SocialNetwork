@@ -125,7 +125,7 @@
         </div>
 
         <div class="form-group">
-            <select class="form-control">
+            <select class="form-control" name="gender">
                 <option>--Select Gender--</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>

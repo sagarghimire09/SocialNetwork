@@ -23,9 +23,11 @@ public class PostDaoImpl implements PostDao {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
         Long id = (Long)session.save(post);
+
         transaction.commit();
         session.close();
         return id;
+
     }
 
     @Override
