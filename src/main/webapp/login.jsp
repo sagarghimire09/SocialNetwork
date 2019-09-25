@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V8</title>
+    <title>Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="resources/css/main.css" type="text/css" rel="stylesheet" />
@@ -18,7 +18,7 @@
 <body>
 
 <div class="limiter">
-    <div class="container-login100">
+    <div class="container-login100" style="background: #eae5f3">
         <div class="wrap-login100">
             <form action="login" method="post" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
