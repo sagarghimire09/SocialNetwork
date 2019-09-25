@@ -25,6 +25,7 @@ public class User implements Serializable {
     private String workplace;
     private String designation;
     private LocalDate birthDate;
+
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "follower_id"))
