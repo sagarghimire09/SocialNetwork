@@ -42,6 +42,7 @@
       <artifactId>hibernate-core</artifactId>
       <version>5.4.2.Final</version>
     </dependency>
+<<<<<<< HEAD
       <dependency>
           <groupId>commons-fileupload</groupId>
           <artifactId>commons-fileupload</artifactId>
@@ -49,12 +50,22 @@
       </dependency>
 
     <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+=======
+>>>>>>> 7971b330ddb38bbf07746e71b372a8ddb8891abe
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
+<<<<<<< HEAD
 
+=======
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.4</version>
+    </dependency>
+>>>>>>> 7971b330ddb38bbf07746e71b372a8ddb8891abe
   </dependencies>
 
   <build>

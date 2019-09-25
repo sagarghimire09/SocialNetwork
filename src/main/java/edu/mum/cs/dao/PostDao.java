@@ -9,4 +9,5 @@ public interface PostDao {
     void updatePost(Post post);
     void deletePost(Long id);
     List<Post> findAllPost();
+    List<Post> getAjaxPost(Long id, int row);
 }
