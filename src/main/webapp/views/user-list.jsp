@@ -70,14 +70,14 @@
                                                 <c:when test="${user.status == true }">
                                                     <form action="editUser" method="post">
                                                         <input type="hidden" name="userId" value="${user.userId}">
-                                                        <input type="hidden" name="status" value="0">
+                                                        <input type="hidden" name="status" value="false">
                                                         <input type="submit" class="btn btn-danger" value="Deactivate">
                                                     </form>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <form action="editUser" method="post">
                                                         <input type="hidden" name="userId" value="${user.userId}">
-                                                        <input type="hidden" name="status" value="1">
+                                                        <input type="hidden" name="status" value="true">
                                                         <input type="submit" class="btn btn-success" value="Activate">
                                                     </form>
                                                 </c:otherwise>

@@ -17,9 +17,11 @@ public class EditUserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long userId = Long.parseLong(req.getParameter("userId"));
-        boolean status = Boolean.getBoolean(req.getParameter("status"));
+        boolean status = false;
+        if(req.getParameter("status").equals("true")){
+            status = true;
+        }
         User user = userService.findUserById(userId);
-        System.out.println(user);
         user.setStatus(status);
         userService.updateUser(user);
         resp.sendRedirect("user");
