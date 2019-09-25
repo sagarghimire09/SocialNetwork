@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,14 +25,16 @@
 					<span class="login100-form-title">
 						Social Network
 					</span>
-
+                <c:if test="${not empty errMsg}">
+                    <p class="error">${errMsg}</p>
+                </c:if>
                 <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-                    <input class="input100" type="text" name="email" placeholder="Your Email">
+                    <input class="input100" type="email" name="email" placeholder="Your Email" required>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate = "Please enter password">
-                    <input class="input100" type="password" name="password" placeholder="Password">
+                    <input class="input100" type="password" name="password" placeholder="Password" required>
                     <span class="focus-input100"></span>
                 </div>
 
@@ -65,7 +68,10 @@
     </div>
 </div>
 
-<%--<script src="resources/js/main.js"></script>--%>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $('form').validate();
+</script>
 
 </body>
 </html>

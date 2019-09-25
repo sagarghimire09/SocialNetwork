@@ -20,9 +20,7 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePost(Long id) {
-
-    }
+    public void deletePost(Long id) { }
 
     @Override
     public List<Post> findAllPost() {
@@ -38,5 +36,10 @@ public class PostServiceImpl implements PostService {
     public Long savePost(Post post)
     {
         return postDao.savePost(post);
+    }
+
+    @Override
+    public List<Post> getAjaxPost(Long id, int row) {
+        return null;
     }
 }

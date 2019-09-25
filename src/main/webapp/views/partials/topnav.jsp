@@ -13,7 +13,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a href="http://usebootstrap.com/theme/facebook" class="navbar-brand logo">b</a>
+        <a href="home" class="navbar-brand logo">b</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation" style="background-color: mediumpurple;">
         <form class="navbar-form navbar-left">
