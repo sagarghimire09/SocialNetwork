@@ -16,7 +16,10 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public Post findPostById(Long id) {
-        return null;
+        Session session = sessionFactory.openSession();
+        Post post = session.get(Post.class, id);
+        session.close();
+        return post;
     }
 
     @Override
@@ -27,7 +30,6 @@ public class PostDaoImpl implements PostDao {
         transaction.commit();
         session.close();
         return id;
-
     }
 
     @Override
@@ -46,7 +48,10 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public List<Post> findAllPost() {
-        return null;
+        Session session = sessionFactory.openSession();
+        List<Post> postList = session.createQuery("from Post").list();
+        session.close();
+        return postList;
     }
 
     @Override

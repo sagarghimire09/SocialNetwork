@@ -17,9 +17,11 @@ public class EditPostController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long postId = Long.parseLong(req.getParameter("postId"));
-        boolean status = Boolean.getBoolean(req.getParameter("status"));
-        Post post = new Post();
-        post.setPostId(postId);
+        boolean status = false;
+        if(req.getParameter("status").equals("true")){
+            status = true;
+        }
+        Post post = postService.findPostById(postId);
         post.setStatus(status);
         postService.updatePost(post);
         resp.sendRedirect("post");

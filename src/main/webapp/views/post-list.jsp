@@ -61,24 +61,24 @@
                                         <c:forEach items="${postList}" var="post" varStatus="loop">
                                             <tr>
                                                 <th>${loop.index+1}</th>
-                                                <td>Mark</td>
+                                                <td>${post.user.firstName} ${post.user.lastName}</td>
                                                 <td>${post.postBody}</td>
-                                                <td>@mdo</td>
-                                                <td>sdsa</td>
+                                                <td><img src="resources/fileUpload/${post.postImage}"></td>
+                                                <td>${post.status}</td>
                                                 <td>
                                                  <c:choose>
                                                      <c:when test="${post.status == true }">
                                                          <form action="editPost" method="post">
                                                              <input type="hidden" name="postId" value="${post.postId}">
-                                                             <input type="hidden" name="status" value="0">
+                                                             <input type="hidden" name="status" value="false">
                                                              <input type="submit" class="btn btn-danger" value="Deactivate">
                                                          </form>
                                                      </c:when>
                                                      <c:otherwise>
                                                          <form action="editPost" method="post">
                                                              <input type="hidden" name="postId" value="${post.postId}">
-                                                             <input type="hidden" name="status" value="1">
-                                                             <input type="submit" class="btn btn-danger" value="Activate">
+                                                             <input type="hidden" name="status" value="true">
+                                                             <input type="submit" class="btn btn-success" value="Activate">
                                                          </form>
                                                      </c:otherwise>
                                                  </c:choose>   
