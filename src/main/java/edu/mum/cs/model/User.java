@@ -1,5 +1,8 @@
 package edu.mum.cs.model;
 
+import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.SelectBeforeUpdate;
+
 import javax.persistence.*;
 import java.util.List;
 

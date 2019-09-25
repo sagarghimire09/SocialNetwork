@@ -30,7 +30,11 @@ public class PostDaoImpl implements PostDao {
 
     @Override
     public void updatePost(Post post) {
-
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(post);
+        transaction.commit();
+        session.close();
     }
 
     @Override
