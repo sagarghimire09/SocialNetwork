@@ -15,7 +15,7 @@
         </button>
         <a href="http://usebootstrap.com/theme/facebook" class="navbar-brand logo">b</a>
     </div>
-    <nav class="collapse navbar-collapse" role="navigation">
+    <nav class="collapse navbar-collapse" role="navigation" style="background-color: mediumpurple;">
         <form class="navbar-form navbar-left">
             <div class="input-group input-group-sm" style="max-width:360px;">
                 <input class="form-control" placeholder="Search" name="srch-term" id="srch-term" type="text">

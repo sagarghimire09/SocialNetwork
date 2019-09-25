@@ -23,7 +23,7 @@ public class User implements Serializable {
     private String gender;
     private String workplace;
     private String designation;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "follower_id"))
     private List<User> followers;
