@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -111,21 +112,22 @@
 </head>
 <body>
 <div class="signup-form">
-    <form action="register" method="post">
+    <form action="register" method="post" novalidate>
         <h2>Social Network</h2>
         <p class="hint-text">Create your account. And start making friends...</p>
+        <c:if test="${not empty errMsg}"><label>${errMsg}</label></c:if>
         <div class="form-group">
             <div class="row">
-                <div class="col-xs-6"><input type="text" class="form-control" name="firstName" placeholder="First Name" required="required"></div>
-                <div class="col-xs-6"><input type="text" class="form-control" name="lastName" placeholder="Last Name" required="required"></div>
+                <div class="col-xs-6"><input type="text" class="form-control" name="firstName" placeholder="First Name" required></div>
+                <div class="col-xs-6"><input type="text" class="form-control" name="lastName" placeholder="Last Name" required></div>
             </div>
         </div>
         <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email" required="required">
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
         </div>
 
         <div class="form-group">
-            <select class="form-control" name="gender">
+            <select class="form-control" id="gender" name="gender" required>
                 <option>--Select Gender--</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
@@ -134,13 +136,13 @@
         </div>
 
         <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" required="required">
+            <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
         </div>
         <div class="form-group">
-            <label class="checkbox-inline"><input type="checkbox" required="required" name="termsCondition"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+            <label class="checkbox-inline"><input type="checkbox" required name="termsCondition"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
         </div>
         <div class="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block">Register Now</button>
@@ -148,5 +150,17 @@
     </form>
     <div class="text-center">Already have an account? <a href="login">Sign in</a></div>
 </div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+    $('form').validate({
+        rules: {
+            confirmPassword : {
+                equalTo: '#password'
+            }
+        }
+    });
+</script>
+
 </body>
 </html>

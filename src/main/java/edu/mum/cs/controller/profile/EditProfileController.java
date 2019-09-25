@@ -19,6 +19,10 @@ public class EditProfileController extends HttpServlet {
     UserService userService = new UserServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
+        Long userId = (Long) session.getAttribute("loggedInUserId");
+        User user = userService.findUserById(userId);
+        req.setAttribute("user", user);
         RequestDispatcher rd = req.getRequestDispatcher("views/profile-edit.jsp");
         rd.forward(req, resp);
     }

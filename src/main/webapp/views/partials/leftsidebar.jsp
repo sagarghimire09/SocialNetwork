@@ -5,7 +5,7 @@
   Time: 11:02 PM
   To change this template use File | Settings | File Templates.
 --%>
-<c:if test="${loggedInUser.role == 'ROLE_ADMIN'}">
+<%--<c:if test="${loggedInUser.role == 'ROLE_ADMIN'}">--%>
 <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
     <ul class="nav">
@@ -15,8 +15,8 @@
                 <p>
                       <span class="img-span">
                        <img src="resources/img/TM.jpg" class="img-display">
-                          <a href="#">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
-                      </span>
+                          <a href="profile">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
+                       </span>
                 </p>
 
     <ul class="nav hidden-xs" id="lg-menu">
@@ -32,4 +32,4 @@
     </ul>
 
 </div>
-</c:if>
+<%--</c:if>--%>

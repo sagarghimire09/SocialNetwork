@@ -11,7 +11,6 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
     private String postBody;
-
     @Column(length = 100000)
     private byte[] postImage;
     @CreationTimestamp
