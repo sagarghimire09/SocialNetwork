@@ -40,12 +40,10 @@
                     <div class="full col-sm-9">
 
                         <!-- content -->
+                        <div class="row">
 
-                                <!--Timeline Menu for Large Screens End-->
-                            </div>
-                            <%--                            end added--%>
                             <!-- main col left -->
-                            <div class="col-sm-7">
+                            <div class="col-sm-9">
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -54,6 +52,7 @@
                                         <th scope="col">LastName</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Status</th>
+                                        <th scope="col">Profile</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                     </thead>
@@ -65,19 +64,20 @@
                                             <td>${user.lastName}</td>
                                             <td>${user.email}</td>
                                             <td>${user.status}</td>
+                                            <td><a href="friendProfile?friendId=${user.userId}">click here</a></td>
                                             <td>
                                             <c:choose>
                                                 <c:when test="${user.status == true }">
                                                     <form action="editUser" method="post">
                                                         <input type="hidden" name="userId" value="${user.userId}">
-                                                        <input type="hidden" name="status" value="0">
+                                                        <input type="hidden" name="status" value="false">
                                                         <input type="submit" class="btn btn-danger" value="Deactivate">
                                                     </form>
                                                 </c:when>
                                                 <c:otherwise>
                                                     <form action="editUser" method="post">
                                                         <input type="hidden" name="userId" value="${user.userId}">
-                                                        <input type="hidden" name="status" value="1">
+                                                        <input type="hidden" name="status" value="true">
                                                         <input type="submit" class="btn btn-success" value="Activate">
                                                     </form>
                                                 </c:otherwise>

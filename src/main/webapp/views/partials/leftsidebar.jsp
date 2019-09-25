@@ -5,11 +5,19 @@
   Time: 11:02 PM
   To change this template use File | Settings | File Templates.
 --%>
+<c:if test="${loggedInUser.role == 'ROLE_ADMIN'}">
 <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
     <ul class="nav">
         <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
     </ul>
+
+                <p>
+                      <span class="img-span">
+                       <img src="resources/img/TM.jpg" class="img-display">
+                          <a href="#">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
+                      </span>
+                </p>
 
     <ul class="nav hidden-xs" id="lg-menu">
         <li><a href="getAds"><i class="glyphicon glyphicon-list-alt"></i> Ads</a></li>
@@ -24,3 +32,4 @@
     </ul>
 
 </div>
+</c:if>

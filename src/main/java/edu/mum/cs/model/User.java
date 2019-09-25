@@ -1,14 +1,13 @@
 package edu.mum.cs.model;
 
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.SelectBeforeUpdate;
-
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -20,22 +19,27 @@ public class User {
     private String email;
     private String password;
     private boolean status;
+
     private String role;
     private String gender;
     private String workplace;
     private String designation;
-    @ManyToMany(cascade = CascadeType.ALL)
+    private LocalDate birthDate;
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "follower_id"))
     private List<User> followers;
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Post> posts;
 
     public User() {
 
     }
 
-    public User(String firstName, String lastName, String email, String password, String gender, boolean status, String role) {
+    public User(String firstName, String lastName, String email, String password,
+                String gender, boolean status, String role) {
+
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -123,6 +127,14 @@ public class User {
 
     public void setDesignation(String designation) {
         this.designation = designation;
+    }
+
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
     }
 
     public List<User> getFollowers() {
