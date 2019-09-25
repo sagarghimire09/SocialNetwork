@@ -31,7 +31,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void updatePost(Post post) {
-
+        postDao.updatePost(post);
     }
 
     @Override

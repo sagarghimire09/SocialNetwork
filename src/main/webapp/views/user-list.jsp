@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +46,6 @@
                             <%--                            end added--%>
                             <!-- main col left -->
                             <div class="col-sm-7">
-
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -54,42 +55,39 @@
                                         <th scope="col">Email</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
-
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Yubraj</td>
-                                        <td>Ghimire</td>
-                                        <td>yub@mum.edu</td>
-                                        <td>Active</td>
-                                        <td>Edit</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Sagar</td>
-                                        <td>Ghimire</td>
-                                        <td>sag@mum.edu</td>
-                                        <td>Active</td>
-                                        <td>Edit</td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Chinedu</td>
-                                        <td>Urbanus</td>
-                                        <td>cub@mum.edu</td>
-                                        <td>Active</td>
-                                        <td>Edit</td>
-
-                                    </tr>
+                                    <c:forEach items="${userList}" var="user" varStatus="loop">
+                                        <tr>
+                                            <td>${loop.index+1}</td>
+                                            <td>${user.firstName}</td>
+                                            <td>${user.lastName}</td>
+                                            <td>${user.email}</td>
+                                            <td>${user.status}</td>
+                                            <td>
+                                            <c:choose>
+                                                <c:when test="${user.status == true }">
+                                                    <form action="editUser" method="post">
+                                                        <input type="hidden" name="userId" value="${user.userId}">
+                                                        <input type="hidden" name="status" value="false">
+                                                        <input type="submit" class="btn btn-danger" value="Deactivate">
+                                                    </form>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <form action="editUser" method="post">
+                                                        <input type="hidden" name="userId" value="${user.userId}">
+                                                        <input type="hidden" name="status" value="true">
+                                                        <input type="submit" class="btn btn-success" value="Activate">
+                                                    </form>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            </td>
+                                        </tr>
+                                    </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
-
-
 
                         </div><!--/row-->
 

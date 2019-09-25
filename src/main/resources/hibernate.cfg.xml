@@ -21,6 +21,7 @@
         <!-- Resource Mapping -->
         <mapping class="edu.mum.cs.model.Post"/>
         <mapping class="edu.mum.cs.model.User"/>
+        <mapping class="edu.mum.cs.model.Ads"/>
 
     </session-factory>
 </hibernate-configuration>
