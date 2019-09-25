@@ -15,6 +15,16 @@ import java.io.IOException;
 
 @WebServlet("/login")
 public class LoginController extends HttpServlet {
+    String url = "jdbc:mysql://localhost:3306/socialdb";
+    String username = "sagar-sys";
+    String pass = "test1234";
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
+        rd.forward(req, resp);
+    }
+
     UserService userService = new UserServiceImpl();
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -35,9 +45,4 @@ public class LoginController extends HttpServlet {
 
     }
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
-        rd.forward(req, resp);
-    }
 }

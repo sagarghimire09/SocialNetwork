@@ -1,8 +1,8 @@
 package edu.mum.cs.model;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
+import java.sql.Blob;
 import java.time.LocalDate;
 
 @Entity
@@ -12,13 +12,25 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
     private String postBody;
-    private String postImage;
+
+    @Column(length = 100000)
+    private byte[] postImage;
     @CreationTimestamp
     private LocalDate createdAt;
     private boolean status;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public Post() {
+    }
+
+    public Post(String postBody, byte[] postImage, LocalDate createdAt, User user) {
+        this.postBody = postBody;
+        this.postImage = postImage;
+        this.createdAt = createdAt;
+        this.user = user;
+    }
 
     public Long getPostId() {
         return postId;
@@ -36,11 +48,11 @@ public class Post {
         this.postBody = postBody;
     }
 
-    public String getPostImage() {
+    public byte[] getPostImage() {
         return postImage;
     }
 
-    public void setPostImage(String postImage) {
+    public void setPostImage(byte[] postImage) {
         this.postImage = postImage;
     }
 

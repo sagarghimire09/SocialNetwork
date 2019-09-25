@@ -1,7 +1,6 @@
 package edu.mum.cs.dao;
 
 import edu.mum.cs.model.Post;
-
 import java.util.List;
 
 public interface PostDao {
