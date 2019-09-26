@@ -16,17 +16,21 @@ import java.io.IOException;
 
 @WebServlet("/follow")
 public class FollowController extends HttpServlet {
-    UserService userService = new UserServiceImpl();
-    FollowerService followerService = new FollowerServiceImpl();
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Long userId = Long.parseLong(req.getParameter("userId"));
-        Long followingId = Long.parseLong(req.getParameter("followingId"));
-        User user = userService.findUserById(userId);
-        User following = userService.findUserById(followingId);
-        following.getFollowers().add(user);
-        followerService.follow(following);
-        String referer = req.getHeader("Referer");
-        resp.sendRedirect(referer);
-    }
+//    UserService userService = new UserServiceImpl();
+//    FollowerService followerService = new FollowerServiceImpl();
+//
+//
+//
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        Long userId = Long.parseLong(req.getParameter("userId"));
+//        Long followingId = Long.parseLong(req.getParameter("followingId"));
+//        User user = userService.findUserById(userId);
+//        User following = userService.findUserById(followingId);
+//        following.getFollowers().add(user);
+//        followerService.follow(following);
+//
+//        String referer = req.getHeader("Referer");
+//        resp.sendRedirect(referer);
+//    }
 }

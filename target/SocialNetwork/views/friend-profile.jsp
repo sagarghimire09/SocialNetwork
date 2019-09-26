@@ -31,7 +31,7 @@
             <%@ include file="partials/leftsidebar.jsp" %>
             <!-- /sidebar -->
             <!-- main right col -->
-            <div class="column ${not empty divcol ? divcol : 'col-sm-12'} col-xs-11" id="main">
+            <div class="column col-sm-10 col-xs-11" id="main">
                 <!-- top nav -->
                 <%@ include file="partials/topnav.jsp" %>
                 <!-- /top nav -->
