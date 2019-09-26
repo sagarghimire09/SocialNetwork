@@ -77,6 +77,14 @@ public class UserDaoImpl implements UserDao {
         return userList;
     }
 
+    @Override
+    public List<User> findAllActivatedUser(User user) {
+        Session session = sessionFactory.openSession();
+        List<User> userList = session.createQuery("from User where role != 'ROLE_ADMIN' and status = true and userId != '"+user.getUserId()+"'").list();
+        session.close();
+        return userList;
+    }
+
     public List<Post> findUserRelatedPosts(User user) {
         List<Post> postLists = new ArrayList();
         try {

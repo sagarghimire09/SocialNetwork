@@ -43,11 +43,12 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-
         User userLoggedIn = (User) session.getAttribute("loggedInUser");
+        List<User> allUserListNotFollowed = userService.findAllActivatedUser(userLoggedIn);
+//        System.out.println(allUserListNotFollowed.size());
         List<Ads> adsList = adsService.findAllAds();
         List<Post> userRelatedPosts  = userService.findUserRelatedPosts(userLoggedIn);
-
+        request.setAttribute("allUserListNotFollowed", allUserListNotFollowed);
         request.setAttribute("adverts", adsList);
         session.setAttribute("relatedPosts", userRelatedPosts);
         session.setAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
