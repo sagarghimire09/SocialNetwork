@@ -6,7 +6,9 @@ import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import edu.mum.cs.service.UserService;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserServiceImpl implements UserService {
 
@@ -40,6 +42,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> findAllUser() {
         return userDao.findAllUser();
+    }
+
+    @Override
+    public List<User> findAllActivatedUser(User user) {
+        List<User> res = new ArrayList<>();
+        List<User> userList = userDao.findAllActivatedUser(user);
+
+        for (User u: userList){
+
+            if(!user.getFollowers().contains(u.getUserId()))
+                res.add(u);
+        }
+        return res;
     }
 
     @Override

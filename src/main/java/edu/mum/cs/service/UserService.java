@@ -12,6 +12,7 @@ public interface UserService {
     void updateUser(User user);
     void deleteUser(Long id);
     List<User> findAllUser();
+    List<User> findAllActivatedUser(User user);
     User authenticate(User user);
     List<Post> findUserRelatedPosts(User user);
 }

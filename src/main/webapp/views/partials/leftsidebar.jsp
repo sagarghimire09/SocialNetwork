@@ -12,15 +12,27 @@
             <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
         </ul>
         <p>
-                    <span class="img-span">
-                        <img src="resources/img/TM.jpg" class="img-display">
-                        <a href="profile">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
-                    </span>
+            <span class="img-span">
+                <img src="resources/img/TM.jpg" class="img-display">
+                <a href="profile">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
+            </span>
         </p>
         <ul class="nav hidden-xs" id="lg-menu">
             <li><a href="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
             <li><a href="user"><i class="glyphicon glyphicon-paperclip"></i> Followers</a></li>
         </ul>
+        <c:if test="${not empty allUserListNotFollowed}">
+            <hr><p>All Users</p>
+            <c:forEach items="${allUserListNotFollowed}" var="aUser">
+                <p>
+                    <span class="img-span">
+                        <img src="resources/img/TM.jpg" class="img-display">
+                        <a href="profile">${aUser.firstName} ${aUser.lastName}</a>
+                        <a href="friendProfile?friendId=${aUser.userId}" class="btn btn-success">Follow</a>
+                    </span>
+                </p>
+            </c:forEach>
+        </c:if>
         <ul class="list-unstyled hidden-xs" id="sidebar-footer">
             <li>
                 <a href="#"><h3>Social</h3> <i class="glyphicon glyphicon-heart-empty"></i> Network</a>
