@@ -155,17 +155,25 @@
                                     </div>
                                     <div class="panel-body">
                                         <ul class="list-group list-group-dividered list-group-full">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                             <li class="list-group-item">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <a class="avatar avatar-online" href="javascript:void(0)">
+<<<<<<< HEAD
                                                             <img src="https://scontent.ffod1-1.fna.fbcdn.net/v/t1.0-9/69688828_1321576867995817_2004657770451697664_n.jpg?_nc_cat=108&_nc_oc=AQlPcmuEn76_rtSQaI3TdOJUfF2dL2iM0vAtpbNsoPnggIyIxwM39xuPezAhsbQPmRw&_nc_ht=scontent.ffod1-1.fna&oh=29ee9333b798ffceb7a4aef669f390dc&oe=5E318810" alt="">
+=======
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                                             <i></i>
                                                         </a>
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="pull-right">
+<<<<<<< HEAD
                                                             <button type="button" class="btn btn-success btn-default btn-sm waves-effect waves-light"><i class="icon md-check" aria-hidden="true"></i>Following</button>
                                                         </div>
                                                         <div><a class="name" href="javascript:void(0)">Yubraj Ghimire</a></div>
@@ -174,11 +182,24 @@
                                                 </div>
                                             </li>
 
+=======
+                                                            <button type="button" class="btn btn-info btn-sm waves-effect waves-light">Follow</button>
+                                                        </div>
+                                                        <div><a class="name" href="javascript:void(0)">Willard Wood</a></div>
+                                                        <small>@heavybutterfly920</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                             <li class="list-group-item">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <a class="avatar avatar-away" href="javascript:void(0)">
+<<<<<<< HEAD
                                                             <img src="https://scontent.ffod1-1.fna.fbcdn.net/v/t1.0-9/69307398_1501033093370977_4537655664306028544_n.jpg?_nc_cat=110&_nc_oc=AQkaNqxMo0dSzNfsqRwQrm1GBokLSaqNyv9S5wc-I8CZDXvR6R_eU35Yopsb5LI_OR4&_nc_ht=scontent.ffod1-1.fna&oh=de3458476a848da8dec75e031831573a&oe=5E3CF2A0" alt="">
+=======
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                                             <i></i>
                                                         </a>
                                                     </div>
@@ -186,25 +207,42 @@
                                                         <div class="pull-right">
                                                             <button type="button" class="btn btn-success btn-default btn-sm waves-effect waves-light"><i class="icon md-check" aria-hidden="true"></i>Following</button>
                                                         </div>
+<<<<<<< HEAD
                                                         <div><a class="name" href="javascript:void(0)">Sagar Ghimire</a></div>
                                                         <small>@ghimiresagar</small>
+=======
+                                                        <div><a class="name" href="javascript:void(0)">Ronnie Ellis</a></div>
+                                                        <small>@kingronnie24</small>
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
                                                 <div class="media">
                                                     <div class="media-left">
+<<<<<<< HEAD
                                                         <a class="avatar avatar-busy">
                                                             <img src="https://scontent.ffod1-1.fna.fbcdn.net/v/t1.0-9/68456814_2867003393313093_9137062938169835520_n.jpg?_nc_cat=102&_nc_oc=AQkfIA3-MN0iT2ycEc-EV4r_VAlGJNddMTIfdzTxAZWQJu91K9mOAKMceJs3vzT36Ys&_nc_ht=scontent.ffod1-1.fna&oh=bc262163692790d6359dab5b3056fdde&oe=5DF61951" alt="">
+=======
+                                                        <a class="avatar avatar-busy" href="javascript:void(0)">
+                                                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                                             <i></i>
                                                         </a>
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="pull-right">
+<<<<<<< HEAD
                                                             <button type="button" class="btn btn-success btn-default btn-sm waves-effect waves-light"><i class="icon md-check" aria-hidden="true"></i>Following</button>
                                                         </div>
                                                         <div><a class="name" href="javascript:void(0)">Chinedu Urbanus</a></div>
                                                         <small>@chinedu</small>
+=======
+                                                            <button type="button" class="btn btn-info btn-sm waves-effect waves-light">Follow</button>
+                                                        </div>
+                                                        <div><a class="name" href="javascript:void(0)">Gwendolyn Wheeler</a></div>
+                                                        <small>@perttygirl66</small>
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                                     </div>
                                                 </div>
                                             </li>
@@ -218,11 +256,18 @@
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="pull-right">
+<<<<<<< HEAD
                                                             <button type="button" class="btn btn-success btn-default btn-sm waves-effect waves-light"><i class="icon md-check" aria-hidden="true"></i>Following</button>
 
                                                         </div>
                                                         <div><a class="name" href="javascript:void(0)">Unkonown User</a></div>
                                                         <small>@unknown</small>
+=======
+                                                            <button type="button" class="btn btn-info btn-sm waves-effect waves-light">Follow</button>
+                                                        </div>
+                                                        <div><a class="name" href="javascript:void(0)">Daniel Russell</a></div>
+                                                        <small>@danieltiger08</small>
+>>>>>>> 7fbe9162da5175782b69d20e0cd4c94c0b10fdda
                                                     </div>
                                                 </div>
                                             </li>

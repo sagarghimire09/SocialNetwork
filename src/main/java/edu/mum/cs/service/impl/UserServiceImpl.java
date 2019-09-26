@@ -2,6 +2,7 @@ package edu.mum.cs.service.impl;
 
 import edu.mum.cs.dao.UserDao;
 import edu.mum.cs.dao.impl.UserDaoImpl;
+import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import edu.mum.cs.service.UserService;
 
@@ -49,5 +50,11 @@ public class UserServiceImpl implements UserService {
         }
         return null;
     }
+
+    @Override
+    public List<Post> findUserRelatedPosts(User user) {
+        return userDao.findUserRelatedPosts(user);
+    }
+
 
 }
