@@ -1,5 +1,6 @@
 package edu.mum.cs.service;
 
+import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface UserService {
     void deleteUser(Long id);
     List<User> findAllUser();
     User authenticate(User user);
+    List<Post> findUserRelatedPosts(User user);
 }

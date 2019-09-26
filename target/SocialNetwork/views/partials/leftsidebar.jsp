@@ -18,7 +18,7 @@
             <li><a href="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
             <li><a href="getAds"><i class="glyphicon glyphicon-list-alt"></i> Followers</a></li>
         </ul>
-        
+
         <ul class="list-unstyled hidden-xs" id="sidebar-footer">
             <li>
                 <a href="#"><h3>Social</h3> <i class="glyphicon glyphicon-heart-empty"></i> Network</a>

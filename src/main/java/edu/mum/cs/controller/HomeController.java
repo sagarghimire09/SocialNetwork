@@ -1,11 +1,13 @@
 package edu.mum.cs.controller;
 
 import edu.mum.cs.model.Ads;
+import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import edu.mum.cs.service.AdsService;
 import edu.mum.cs.service.UserService;
 import edu.mum.cs.service.impl.AdsServiceImpl;
 import edu.mum.cs.service.impl.UserServiceImpl;
+import javafx.geometry.Pos;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -43,13 +45,14 @@ public class HomeController extends HttpServlet {
         HttpSession session = request.getSession();
 
         User userLoggedIn = (User) session.getAttribute("loggedInUser");
-        User userPosting = userService.findUserById(userLoggedIn.getUserId());
         List<Ads> adsList = adsService.findAllAds();
-
+        List<Post> userRelatedPosts  = userService.findUserRelatedPosts(userLoggedIn);
 
         request.setAttribute("adverts", adsList);
-        session.setAttribute("posted", userPosting);
+        session.setAttribute("relatedPosts", userRelatedPosts);
         session.setAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
+
+
         RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
         rd.forward(request, response);
 
@@ -81,9 +84,9 @@ public class HomeController extends HttpServlet {
                         File file = new File(imagePath);
                         item.write(file);
                         InputStream inputStream = new FileInputStream(file);
-                        User userr = (User) session.getAttribute("loggedInUser");
+                        User user = (User) session.getAttribute("loggedInUser");
 
-                        savePost(postBody,inputStream, name, userr.getUserId());
+                        savePost(postBody,inputStream, name, user.getUserId());
                         response.sendRedirect("home");
 
                         getServletContext().setAttribute("message", "post updated successfully");

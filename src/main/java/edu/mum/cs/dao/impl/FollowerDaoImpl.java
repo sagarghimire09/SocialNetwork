@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class FollowerDaoImpl implements FollowerDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     @Override
@@ -23,4 +25,6 @@ public class FollowerDaoImpl implements FollowerDao {
     public void unfollow(User user, User following) {
 
     }
+
+
 }

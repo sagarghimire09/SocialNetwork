@@ -74,29 +74,31 @@
                                     </form>
                                 </div>
 
-                                <c:forEach var="post" items="${posted.posts}" varStatus="counter">
+                                <c:forEach var="post" items="${relatedPosts}" varStatus="counter">
 
                                     <div class="panel panel-default">
                                         <p>
                                         <span class="img-span">
                                             <img src="resources/img/TM.jpg" class="img-display"> <a
-                                                href="#">${posted.firstName} ${posted.lastName}</a>
+                                                href="#">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
                                         </span>
                                             <span style="display: block; margin: 2%">
                                                     ${localDateTimeFormat.parse(post.createdAt)}
                                             </span>
                                         </p>
 
-                                        <c:if test="${post.imageName != 'noName.gif'}">
-                                            <div class="panel-thumbnail">
-                                                <img src="getImage.jsp?postId=${post.postId}" class="img-responsive">
-                                            </div>
-                                        </c:if>
+
                                         <div class="panel-body">
                                             <p>
                                                     ${post.postBody}
                                             </p>
                                         </div>
+
+                                        <c:if test="${post.imageName != 'noName.gif'}">
+                                            <div class="panel-thumbnail">
+                                                <img src="getImage.jsp?postId=${post.postId}" class="img-responsive">
+                                            </div>
+                                        </c:if>
                                     </div>
                                 </c:forEach>
                             </div>
@@ -104,36 +106,23 @@
                             <!-- main col right -->
                             <div class="col-sm-3">
 
+                            <c:forEach var="advert" items="${adverts}" varStatus="counter">
+
                                 <div class="panel panel-default">
-                                    <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply
-                                        Editor &amp; Code Library</h4></div>
                                     <div class="panel-body">
-                                        <p><img src="resources/img/150x150.gif" class="img-circle pull-right"> <a
-                                                href="#">The Bootstrap Playground</a></p>
+                                        <p>
+                                            ${advert.adsBody}
+                                        </p>
                                         <div class="clearfix"></div>
                                         <hr>
-                                        Design, build, test, and prototype
-                                        using Bootstrap in real-time from your Web browser. Bootply combines the
-                                        power of hand-coded HTML, CSS and JavaScript with the benefits of
-                                        responsive design using Bootstrap. Find and showcase Bootstrap-ready
-                                        snippets in the 100% free Bootply.com code repository.
+                                        <p>
+                                            <a href="${advert.adsLink}" target="_blank">
+                                                <img src="resources/img/bg_5.jpg" style="width: 200px; height: 100px;">
+                                        </a>
+                                        </p>
                                     </div>
                                 </div>
-                                <div class="panel panel-default">
-                                    <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply
-                                        Editor &amp; Code Library</h4></div>
-                                    <div class="panel-body">
-                                        <p><img src="resources/img/150x150.gif" class="img-circle pull-right"> <a
-                                                href="#">The Bootstrap Playground</a></p>
-                                        <div class="clearfix"></div>
-                                        <hr>
-                                        Design, build, test, and prototype
-                                        using Bootstrap in real-time from your Web browser. Bootply combines the
-                                        power of hand-coded HTML, CSS and JavaScript with the benefits of
-                                        responsive design using Bootstrap. Find and showcase Bootstrap-ready
-                                        snippets in the 100% free Bootply.com code repository.
-                                    </div>
-                                </div>
+                            </c:forEach>
 
                             </div>
 

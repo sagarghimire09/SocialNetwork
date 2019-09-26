@@ -45,7 +45,11 @@ public class PostDaoImpl implements PostDao {
     }
 
     @Override
-    public List<Post> findAllPost() {
-        return null;
+    public List<Post> findAllPost()
+    {
+        Session session = sessionFactory.openSession();
+        List<Post> postList = session.createQuery("from Post").list();
+        session.close();
+        return  postList;
     }
 }
