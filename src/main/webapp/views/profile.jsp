@@ -31,7 +31,7 @@
             <%@ include file="partials/leftsidebar.jsp" %>
             <!-- /sidebar -->
             <!-- main right col -->
-            <div class="column col-sm-10 col-xs-11" id="main">
+            <div class="column ${not empty divcol ? divcol : 'col-sm-12'} col-xs-11" id="main">
                 <!-- top nav -->
                 <%@ include file="partials/topnav.jsp" %>
                 <!-- /top nav -->
@@ -66,7 +66,9 @@
                                                 </ul>
                                             </div>
                                             <div class="col-md-3">
+                                                <c:if test="${user.role != ROLE_ADMIN}">
                                                 <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>
+                                                </c:if>
                                                 <div style="margin: 10px;"><a href="#" class="btn btn-primary">About</a></div>
                                                 <div style="margin: 10px;"><a href="profile-edit" class="btn btn-warning">Edit</a></div>
                                             </div>

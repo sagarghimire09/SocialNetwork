@@ -31,7 +31,7 @@
             <%@ include file="partials/leftsidebar.jsp" %>
             <!-- /sidebar -->
             <!-- main right col -->
-            <div class="column col-sm-10 col-xs-11" id="main">
+            <div class="column ${not empty divcol ? divcol : 'col-sm-12'} col-xs-11" id="main">
                 <!-- top nav -->
                 <%@ include file="partials/topnav.jsp" %>
                 <!-- /top nav -->
@@ -59,21 +59,34 @@
                                                     <li>Works on - ${friendUser.workplace}</li>
                                                 </ul>
                                                 <ul class="follow-me list-inline">
-                                                    <li>${loggedInUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
+                                                    <li>${friendUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
                                                         <c:otherwise>Her</c:otherwise></c:choose></li>
-                                                    <li><form action="follow" method="post">
-                                                        <input type="hidden" name="userId" value="${loggedInUserId}">
-                                                        <input type="hidden" name="followingId" value="${friendUser.userId}">
-                                                        <button class="btn-primary" type="submit">Follow <c:choose>
-                                                            <c:when test="${friendUser.gender == 'male'}">Him</c:when><c:otherwise>Her</c:otherwise>
-                                                        </c:choose></button>
-                                                    </form></li>
+                                                    <li>
+                                                    <c:if test="${friendUser.userId != loggedInUserId}">
+<%--                                                    <c:choose>--%>
+<%--                                                        <c:when test="${friendUser.getFollowers().contains(loggedInUser)}">--%>
+                                                            <form action="unfollow" method="post">
+                                                                <input type="hidden" name="userId" value="${loggedInUserId}">
+                                                                <input type="hidden" name="followingId" value="${friendUser.userId}">
+                                                                <button class="btn btn-warning" type="submit">Unfollow</button>
+                                                            </form>
+<%--                                                        </c:when>--%>
+<%--                                                        <c:otherwise>--%>
+                                                            <form action="follow" method="post">
+                                                                <input type="hidden" name="userId" value="${loggedInUserId}">
+                                                                <input type="hidden" name="followingId" value="${friendUser.userId}">
+                                                                <button class="btn btn-primary" type="submit">Follow</button>
+                                                            </form>
+<%--                                                        </c:otherwise>--%>
+<%--                                                    </c:choose>--%>
+                                                    </c:if>
+                                                    </li>
                                                 </ul>
                                             </div>
                                             <div class="col-md-3">
-                                                <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>
+<%--                                                <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>--%>
                                                 <div style="margin: 10px;"><a href="#" class="btn btn-primary">About</a></div>
-                                                <div style="margin: 10px;"><a href="profile-edit" class="btn btn-warning">Edit</a></div>
+<%--                                                <div style="margin: 10px;"><a href="profile-edit" class="btn btn-warning">Edit</a></div>--%>
                                             </div>
                                         </div>
                                     </div>
