@@ -30,7 +30,7 @@ public class GetFollowerController extends HttpServlet {
         HttpSession session = req.getSession();
         Long userId = (Long) session.getAttribute("loggedInUserId");
         User user = userService.findUserById(userId);
-        req.setAttribute("followers", user.getFollowers());
+        session.setAttribute("followers", user.getFollowers());
 
         if(followings.size()  > 0){
             for(Long id : followings) {

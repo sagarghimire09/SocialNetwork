@@ -166,23 +166,6 @@
 
                                                                     <c:forEach var="following" items="${followingsId}" >
 
-<%--                                                                        <c:if test="${follower.userId == following}">--%>
-<%--                                                                            <form action="follower" method="post">--%>
-<%--                                                                                <input type="hidden" name="userId" value="${loggedInUserId}">--%>
-<%--                                                                                <input type="hidden" name="followingId" value="${follower.userId}">--%>
-<%--                                                                                <button type="submit" class="btn btn-success btn-default btn-sm waves-effect waves-light">--%>
-<%--                                                                                    <i class="icon md-check" aria-hidden="true"></i>Unfollow</button>--%>
-<%--                                                                            </form>--%>
-<%--                                                                        </c:if>--%>
-
-<%--                                                                        <c:if test="${follower.userId != following}">--%>
-<%--                                                                            <form action="follower" method="post">--%>
-<%--                                                                                <input type="hidden" name="userId" value="${loggedInUserId}">--%>
-<%--                                                                                <input type="hidden" name="followingId" value="${follower.userId}">--%>
-<%--                                                                                <button type="submit" class="btn btn-success btn-default btn-sm waves-effect waves-light">--%>
-<%--                                                                                    <i class="icon md-check" aria-hidden="true"></i>Follow</button>--%>
-<%--                                                                            </form>--%>
-<%--                                                                        </c:if>--%>
 
                                                                         <c:choose>
                                                                             <c:when test="${follower.userId == following}">

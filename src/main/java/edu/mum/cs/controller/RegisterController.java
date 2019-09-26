@@ -24,7 +24,7 @@ public class RegisterController extends HttpServlet {
         String gender = req.getParameter("gender");
         User anotherUser = userService.getUserByEmail(email);
         if(anotherUser != null) {
-            req.setAttribute("errMsg", "Username already exists !");
+            req.setAttribute("errMsg", "Email already exists !");
             RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
             rd.forward(req, resp);
         }else{

@@ -260,7 +260,9 @@ a.dropdown-menu-header {
 /* -----------------------------------------
    Badge
 ----------------------------------------- */
-
+.error{
+    color: #ff6a34;
+}
 .badge{
     padding: 3px 5px 2px;
     position: absolute;

@@ -14,4 +14,5 @@ public interface UserDao {
     void deleteUser(Long id);
     List<User> findAllUser();
     List<Post> findUserRelatedPosts(User user);
+    List<User> findAllActivatedUser(User user);
 }

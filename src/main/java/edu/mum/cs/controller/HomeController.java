@@ -47,7 +47,9 @@ public class HomeController extends HttpServlet {
         User userLoggedIn = (User) session.getAttribute("loggedInUser");
         List<Ads> adsList = adsService.findAllAds();
         List<Post> userRelatedPosts  = userService.findUserRelatedPosts(userLoggedIn);
+        List<User> allUserListNotFollowed = userService.findAllActivatedUser(userLoggedIn);
 
+        request.setAttribute("allUserListNotFollowed", allUserListNotFollowed);
         request.setAttribute("adverts", adsList);
         session.setAttribute("relatedPosts", userRelatedPosts);
         session.setAttribute("localDateTimeFormat", new SimpleDateFormat("yyyy-MM-dd'T'hh:mm"));
