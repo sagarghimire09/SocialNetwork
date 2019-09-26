@@ -101,7 +101,7 @@ public class UserDaoImpl implements UserDao {
         return postLists.stream().sorted(new Comparator<Post>() {
             @Override
             public int compare(Post o1, Post o2) {
-                return o1.getPostId().compareTo(o2.getPostId());
+                return o2.getPostId().compareTo(o1.getPostId());
             }
         }).collect(Collectors.toList());
     }

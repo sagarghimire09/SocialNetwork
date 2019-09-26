@@ -11,10 +11,18 @@
     <div class="col-sm-6">
 <%--        <a href="#">Twitter</a> <small class="text-muted">|</small> <a href="#">Facebook</a> <small class="text-muted">|</small> <a href="#">Google+</a>--%>
 
-   <span>Your Location:
-       <strong id="location"></strong>
-   </span>
-        <span>Weather Information: </span>
+        <form>
+            <fieldset>
+                <legend>Weather Description:</legend>
+                <div id="weather">
+                    <div id="description"></div>
+                    <h1 id="temp"></h1>
+                    <div id="location"></div>
+                </div>
+            </fieldset>
+
+        </form>
+
     </div>
 </div>
 

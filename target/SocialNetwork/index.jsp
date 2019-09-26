@@ -10,7 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="resources/css/bootstrap.css" rel="stylesheet"/>
     <!--[if lt IE 9]>
+
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+
     <![endif]-->
     <link href="resources/css/facebook.css" rel="stylesheet"/>
 </head>
@@ -80,7 +82,7 @@
                                         <p>
                                         <span class="img-span">
                                             <img src="resources/img/TM.jpg" class="img-display"> <a
-                                                href="#">${loggedInUser.firstName} ${loggedInUser.lastName}</a>
+                                                href="#">${post.user.firstName} ${post.user.lastName}</a>
                                         </span>
                                             <span style="display: block; margin: 2%">
                                                     ${localDateTimeFormat.parse(post.createdAt)}
@@ -106,23 +108,24 @@
                             <!-- main col right -->
                             <div class="col-sm-3">
 
-                            <c:forEach var="advert" items="${adverts}" varStatus="counter">
+                                <c:forEach var="advert" items="${adverts}" varStatus="counterr">
 
-                                <div class="panel panel-default">
-                                    <div class="panel-body">
-                                        <p>
-                                            ${advert.adsBody}
-                                        </p>
-                                        <div class="clearfix"></div>
-                                        <hr>
-                                        <p>
-                                            <a href="${advert.adsLink}" target="_blank">
-                                                <img src="resources/img/bg_5.jpg" style="width: 200px; height: 100px;">
-                                        </a>
-                                        </p>
+                                    <div class="panel panel-default">
+                                        <div class="panel-body">
+                                            <p>
+                                                    ${advert.adsBody}
+                                            </p>
+                                            <div class="clearfix"></div>
+                                            <hr>
+                                            <p>
+                                                <a href="${advert.adsLink}" target="_blank">
+                                                    <img src="resources/img/bg_5.jpg"
+                                                         style="width: 200px; height: 100px;">
+                                                </a>
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </c:forEach>
+                                </c:forEach>
 
                             </div>
 
@@ -130,32 +133,36 @@
 
                             <div class="col-sm-3">
 
-                                <p>
+                                <c:forEach var="follower" items="${loggedInUser.followers}" varStatus="countt">
+
                                         <span class="img-span">
-                                            <img src="resources/img/TM.jpg" class="img-display"> <a href="#">Chinedu Ugwu</a>
+                                            <img src="resources/img/TM.jpg" class="img-display">
+                                            <a href="#">${follower.firstName} ${follower.lastName}</a>
                                         </span>
-                                    <span aria-label="Active Now " class="active-now">
-                                    </span>
-                                </p>
-                                <p>
-                                        <span class="img-span">
-                                            <img src="resources/img/TM.jpg" class="img-display"> <a href="#">Chinedu Ugwu</a>
+
+
+
+                                </c:forEach>
+
+
+                                <c:forEach var="active" items="activeUsers" varStatus="counterrr">
+                                    <c:if test="${follower.userId == active}">
+                                        <span aria-label="Active Now " class="active-now"></span>
+                                    </c:if>
+
+                                    <c:if test="${follower.userId != active}">
+                                        <span aria-label="Active Now " class="not-active"></span>
+                                    </c:if>
+                                </c:forEach>
+
+
+                                      <span class="img-span">
+                                            <img src="resources/img/TM.jpg" class="img-display">
+                                            <a href="#">Chinedu Ugwu</a>
                                         </span>
-                                </p>
-                                <p>
-                                        <span class="img-span">
-                                            <img src="resources/img/TM.jpg" class="img-display"> <a href="#">Chinedu Ugwu</a>
-                                        </span>
-                                    <span aria-label="Active Now " class="active-now">
-                                    </span>
-                                </p>
-                                <p>
-                                        <span class="img-span">
-                                            <img src="resources/img/TM.jpg" class="img-display"> <a href="#">Chinedu Ugwu</a>
-                                        </span>
-                                    <span aria-label="Active Now " class="active-now">
-                                    </span>
-                                </p>
+                                   <span aria-label="Active Now " class="active-now"></span>
+
+
                             </div>
                         </div><!--/row-->
 
@@ -167,6 +174,7 @@
 
             <script type="text/javascript" src="resources/js/jquery.js"></script>
             <script type="text/javascript" src="resources/js/bootstrap.js"></script>
+            <script src="resources/js/index.js" type="text/javascript"></script>
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('[data-toggle=offcanvas]').click(function () {
