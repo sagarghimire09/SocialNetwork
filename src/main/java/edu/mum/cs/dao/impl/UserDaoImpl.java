@@ -1,13 +1,17 @@
 package edu.mum.cs.dao.impl;
 
 import edu.mum.cs.dao.UserDao;
+import edu.mum.cs.model.Post;
 import edu.mum.cs.model.User;
 import edu.mum.cs.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class UserDaoImpl implements UserDao {
 
@@ -24,7 +28,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByEmail(String email) {
         Session session = sessionFactory.openSession();
+//        User user = (User) session.createQuery("from User where email='" + email + "'").getSingleResult();
+
         User user = (User) session.createQuery("from User where email='"+email+"'").setMaxResults(1).stream().findFirst().orElse(null);
+
         session.close();
         return user;
     }
@@ -33,7 +40,7 @@ public class UserDaoImpl implements UserDao {
     public Long saveUser(User user) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Long id = (Long)session.save(user);
+        Long id = (Long) session.save(user);
         transaction.commit();
         session.close();
         return id;
@@ -60,4 +67,43 @@ public class UserDaoImpl implements UserDao {
         session.close();
         return userList;
     }
+
+    public List<Post> findUserRelatedPosts(User user) {
+        List<Post> postLists = new ArrayList();
+        try {
+            Session session = sessionFactory.openSession();
+            List<Post> postList = session.createQuery("from Post").list();
+
+            if (postList != null) {
+
+                List<User> followers = user.getFollowers();
+                List<Post> userPosts = postList.stream().filter(c->c.getUser().getUserId() == user.getUserId())
+                        .collect(Collectors.toList());
+                postLists.addAll(userPosts);
+
+
+                for (Post post : postList) {
+                    if (followers != null) {
+                        for (User follower : followers) {
+                            if(post.getUser().getUserId() == follower.getUserId()){
+                                postLists.add(post);
+                            }
+
+                        }
+                    }
+                }
+
+            }
+            session.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return postLists.stream().sorted(new Comparator<Post>() {
+            @Override
+            public int compare(Post o1, Post o2) {
+                return o1.getPostId().compareTo(o2.getPostId());
+            }
+        }).collect(Collectors.toList());
+    }
+
 }
