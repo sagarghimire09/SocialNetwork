@@ -22,9 +22,17 @@ public class RegisterController extends HttpServlet {
         String email = req.getParameter("email");
         String password = req.getParameter("password");
         String gender = req.getParameter("gender");
-        User user = new User(firstName, lastName, email, password, gender, true, "ROLE_USER");
-        userService.saveUser(user);
-        resp.sendRedirect("login");
+        User anotherUser = userService.getUserByEmail(email);
+        System.out.println(anotherUser.getEmail());
+        if(anotherUser != null) {
+            req.setAttribute("errMsg", "Username already exists !");
+            RequestDispatcher rd = req.getRequestDispatcher("register.jsp");
+            rd.forward(req, resp);
+        }else{
+            User user = new User(firstName, lastName, email, password, gender, true, "ROLE_USER");
+            userService.saveUser(user);
+            resp.sendRedirect("login");
+        }
     }
 
     @Override

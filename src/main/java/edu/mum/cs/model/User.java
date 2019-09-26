@@ -19,7 +19,6 @@ public class User implements Serializable {
     private String email;
     private String password;
     private boolean status;
-
     private String role;
     private String gender;
     private String workplace;
@@ -38,9 +37,7 @@ public class User implements Serializable {
 
     }
 
-    public User(String firstName, String lastName, String email, String password,
-                String gender, boolean status, String role) {
-
+    public User(String firstName, String lastName, String email, String password, String gender, boolean status, String role) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

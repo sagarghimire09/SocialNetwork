@@ -39,14 +39,20 @@ public class LoginController extends HttpServlet {
         try {
             user = userService.authenticate(user);
 
-            if(user != null) {
+            if (user != null) {
                 HttpSession session = req.getSession();
                 session.setAttribute("loggedInUser", user);
                 //login
                 activeUsers.add(user.getUserId());
                 getServletContext().setAttribute("activeUsers", activeUsers);
+
+                session.setAttribute("loggedInUser", user);
+                session.setAttribute("loggedInUserId", user.getUserId());
                 resp.sendRedirect("home");
-            } else{
+
+                resp.sendRedirect("home");
+            } else {
+                req.setAttribute("errMsg", "login failed! wrong details");
                 RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
                 rd.forward(req, resp);
             }

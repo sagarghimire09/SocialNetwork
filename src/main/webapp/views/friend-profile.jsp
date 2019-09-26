@@ -41,70 +41,59 @@
 
                         <!-- content -->
                         <div class="row">
-                            <%--                            added--%>
-                            <div class="timeline-cover">
+                            <%-- added--%>
+                            <div class="timeline-cover" style="margin-bottom: 20px;!important;">
                                 <!--Timeline Menu for Large Screens-->
                                 <div class="timeline-nav-bar hidden-sm hidden-xs">
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="profile-info">
                                                 <img src="resources/img/user.jpg" alt="" class="img-responsive profile-photo">
-                                                <h3>${friendUser.firstName} ${friendUser.lastName}</h3>
-                                                <p class="text-muted">Creative Director</p>
                                             </div>
                                         </div>
                                         <div class="col-md-9">
-                                            <ul class="list-inline profile-menu">
-                                                <li><a href="timeline.html" class="active">Timeline</a></li>
-                                                <li><a href="timeline-about.html">About</a></li>
-                                                <li><a href="profile-edit">Edit</a></li>
-                                                <li><a href="timeline-friends.html">Friends</a></li>
-                                            </ul>
-                                            <ul class="follow-me list-inline">
-                                                <li>${loggedInUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
-                                                    <c:otherwise>Her</c:otherwise></c:choose></li>
-                                                <li><form action="follow" method="post">
-                                                    <input type="hidden" name="userId" value="${loggedInUser.userId}">
-                                                    <input type="hidden" name="followingId" value="${friendUser.userId}">
-                                                    <button class="btn-primary" type="submit">Follow <c:choose>
-                                                        <c:when test="${friendUser.gender == 'male'}">Him</c:when><c:otherwise>Her</c:otherwise>
-                                                    </c:choose></button>
-                                                </form></li>
-                                            </ul>
+                                            <div class="col-md-6">
+                                                <h3>${friendUser.firstName} ${friendUser.lastName}</h3>
+                                                <p class="text-muted">${friendUser.designation}</p>
+                                                <ul class="list-inline profile-menu">
+                                                    <li>Works on - ${friendUser.workplace}</li>
+                                                </ul>
+                                                <ul class="follow-me list-inline">
+                                                    <li>${loggedInUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
+                                                        <c:otherwise>Her</c:otherwise></c:choose></li>
+                                                    <li><form action="follow" method="post">
+                                                        <input type="hidden" name="userId" value="${loggedInUserId}">
+                                                        <input type="hidden" name="followingId" value="${friendUser.userId}">
+                                                        <button class="btn-primary" type="submit">Follow <c:choose>
+                                                            <c:when test="${friendUser.gender == 'male'}">Him</c:when><c:otherwise>Her</c:otherwise>
+                                                        </c:choose></button>
+                                                    </form></li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>
+                                                <div style="margin: 10px;"><a href="#" class="btn btn-primary">About</a></div>
+                                                <div style="margin: 10px;"><a href="profile-edit" class="btn btn-warning">Edit</a></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!--Timeline Menu for Large Screens End-->
                             </div>
-                            <%--                            end added--%>
+                            <hr>
                             <!-- main col left -->
                             <div class="col-sm-7">
-
-                                <div class="well">
-                                    <form class="form-horizontal" action="savePost" method="post" enctype="multipart/form-data">
-                                        <h4>What's New</h4>
-                                        <div class="form-group" style="padding:14px;">
-                                            <textarea class="form-control" name="postBody" placeholder="Update your status"></textarea>
-                                        </div>
-                                        <button class="btn btn-primary pull-right" type="submit">Post</button>
-                                        <ul class="list-inline"><li><label for="file-upload" class="custom-file-upload"><i class="glyphicon glyphicon-upload"></i></label><input id="file-upload" type="file" name="postImage"/></li>
-                                            <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-                                    </form>
-                                </div>
-
+                            <c:forEach items="${friendPosts}" var="fPost">
                                 <div class="panel panel-default">
-                                    <div class="panel-thumbnail"><img src="resources/img/bg_5.jpg" class="img-responsive"></div>
+                                    <div class="panel-thumbnail"><img src="resources/img/bg_5.jpg" class="img-responsive" style="height: 300px!important;"></div>
                                     <div class="panel-body">
-                                        <p class="lead">Urbanization</p>
+                                        <p class="lead">${friendUser.firstName} ${friendUser.lastName}</p>
                                         <p>27 September, 2019</p>
                                         <hr>
-                                        Design, build, test, and prototype
-                                        using Bootstrap in real-time from your Web browser. Bootply combines the
-                                        power of hand-coded HTML, CSS and JavaScript with the benefits of
-                                        responsive design using Bootstrap. Find and showcase Bootstrap-ready
-                                        snippets in the 100% free Bootply.com code repository.
+                                        ${fPost.postBody}
                                     </div>
                                 </div>
+                            </c:forEach>
                             </div>
 
                             <!-- main col right -->

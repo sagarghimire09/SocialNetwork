@@ -1,10 +1,8 @@
 package edu.mum.cs.model;
 
 import org.hibernate.annotations.CreationTimestamp;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
-
 
 @Entity
 @Table(name = "posts")
@@ -13,23 +11,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long postId;
     private String postBody;
-
-    public String getImageName() {
-        return imageName;
-    }
-
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
-    }
-
     private  String imageName;
-
     @Column(length = 100000)
     private byte[] postImage;
-
     @CreationTimestamp
     private LocalDateTime createdAt;
-
     private boolean status;
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -64,6 +50,14 @@ public class Post {
 
     public byte[] getPostImage() {
         return postImage;
+    }
+
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     public void setPostImage(byte[] postImage) {

@@ -20,6 +20,7 @@ public class FriendProfileController extends HttpServlet {
         Long friendId = Long.parseLong(req.getParameter("friendId"));
         User friendUser = userService.findUserById(friendId);
         req.setAttribute("friendUser", friendUser);
+        req.setAttribute("friendPosts", friendUser.getPosts());
         RequestDispatcher rd = req.getRequestDispatcher("views/friend-profile.jsp");
         rd.forward(req, resp);
     }
