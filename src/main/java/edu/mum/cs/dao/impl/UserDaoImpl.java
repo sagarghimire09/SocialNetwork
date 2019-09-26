@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class UserDaoImpl implements UserDao {
@@ -84,7 +85,7 @@ public class UserDaoImpl implements UserDao {
 
             if (postList != null) {
 
-                List<User> followers = user.getFollowers();
+                Set<User> followers = user.getFollowers();
                 List<Post> userPosts = postList.stream().filter(c->c.getUser().getUserId() == user.getUserId())
                         .collect(Collectors.toList());
                 postLists.addAll(userPosts);

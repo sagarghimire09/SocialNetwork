@@ -36,7 +36,7 @@ public class LoginController extends HttpServlet {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
-        try {
+
             user = userService.authenticate(user);
 
             if (user != null) {
@@ -55,9 +55,9 @@ public class LoginController extends HttpServlet {
                 rd.forward(req, resp);
             }
 
-        } catch (Exception e) {
-            resp.sendRedirect("home");
-        }
+//        } catch (Exception e) {
+//            resp.sendRedirect("home");
+//        }
     }
 
 }
