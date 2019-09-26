@@ -72,7 +72,7 @@ public class UserDaoImpl implements UserDao {
         List<Post> postLists = new ArrayList();
         try {
             Session session = sessionFactory.openSession();
-            List<Post> postList = session.createQuery("from Post").list();
+            List<Post> postList = session.createQuery("from Post where status= true").list();
 
             if (postList != null) {
 

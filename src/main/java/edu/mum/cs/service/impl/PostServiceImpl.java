@@ -19,13 +19,8 @@ public class PostServiceImpl implements PostService {
     public void deletePost(Long id) { }
 
     @Override
-<<<<<<< HEAD
-    public List<Post> findAllPost() {
-        return postDao.findAllPost();
-    }
-=======
+
     public List<Post> findAllPost() { return postDao.findAllPost(); }
->>>>>>> master
 
     @Override
     public void updatePost(Post post) {
