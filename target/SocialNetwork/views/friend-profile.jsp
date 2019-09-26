@@ -31,7 +31,7 @@
             <%@ include file="partials/leftsidebar.jsp" %>
             <!-- /sidebar -->
             <!-- main right col -->
-            <div class="column ${not empty divcol ? divcol : 'col-sm-12'} col-xs-11" id="main">
+            <div class="column col-sm-10 col-xs-11" id="main">
                 <!-- top nav -->
                 <%@ include file="partials/topnav.jsp" %>
                 <!-- /top nav -->
@@ -55,37 +55,40 @@
                                             <div class="col-md-6">
                                                 <h3>${friendUser.firstName} ${friendUser.lastName}</h3>
                                                 <p class="text-muted">${friendUser.designation}</p>
-                                                <ul class="list-inline profile-menu">
-                                                    <li>Works on - ${friendUser.workplace}</li>
-                                                </ul>
-                                                <ul class="follow-me list-inline">
-                                                    <li>${friendUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
-                                                        <c:otherwise>Her</c:otherwise></c:choose></li>
-                                                    <li>
-                                                    <c:if test="${friendUser.userId != loggedInUserId}">
-<%--                                                    <c:choose>--%>
-<%--                                                        <c:when test="${friendUser.getFollowers().contains(loggedInUser)}">--%>
-                                                            <form action="unfollow" method="post">
+<%--                                                <ul class="list-inline profile-menu">--%>
+<%--                                                    <li>Works on - ${friendUser.workplace}</li>--%>
+<%--                                                </ul>--%>
+                                                <p>
+                                                ${friendUser.getFollowers().size()} people following <c:choose><c:when test="${friendUser.gender == 'male'}">Him</c:when>
+                                                    <c:otherwise>Her</c:otherwise></c:choose></li>
+
+                                                </p>
+                                                <p class="follow-me list-inline">
+
+                                                    <c:choose>
+                                                        <c:when test="${follower.userId == following && following != null}">
+                                                            <form action="friendProfile" method="post">
                                                                 <input type="hidden" name="userId" value="${loggedInUserId}">
-                                                                <input type="hidden" name="followingId" value="${friendUser.userId}">
-                                                                <button class="btn btn-warning" type="submit">Unfollow</button>
+                                                                <input type="hidden" name="followingId" value="${follower.userId}">
+                                                                <button type="submit" class="btn btn-success btn-default btn-sm waves-effect waves-light">
+                                                                    <i class="icon md-check" aria-hidden="true"></i>Unfollow</button>
                                                             </form>
-<%--                                                        </c:when>--%>
-<%--                                                        <c:otherwise>--%>
-                                                            <form action="follow" method="post">
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <form action="friendProfile" method="post">
                                                                 <input type="hidden" name="userId" value="${loggedInUserId}">
-                                                                <input type="hidden" name="followingId" value="${friendUser.userId}">
-                                                                <button class="btn btn-primary" type="submit">Follow</button>
+                                                                <input type="hidden" name="followingId" value="${follower.userId}">
+                                                                <button type="submit" class="btn btn-warning btn-default btn-sm waves-effect waves-light">
+                                                                    <i class="icon md-check" aria-hidden="true"></i>Follow</button>
                                                             </form>
-<%--                                                        </c:otherwise>--%>
-<%--                                                    </c:choose>--%>
-                                                    </c:if>
-                                                    </li>
-                                                </ul>
+                                                        </c:otherwise>
+                                                    </c:choose>
+
+                                                </p>
                                             </div>
                                             <div class="col-md-3">
 <%--                                                <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>--%>
-                                                <div style="margin: 10px;"><a href="#" class="btn btn-primary">About</a></div>
+<%--                                                <div style="margin: 10px;"><a href="#" class="btn btn-primary">About</a></div>--%>
 <%--                                                <div style="margin: 10px;"><a href="profile-edit" class="btn btn-warning">Edit</a></div>--%>
                                             </div>
                                         </div>
@@ -112,17 +115,17 @@
                             <!-- main col right -->
                             <div class="col-sm-5">
 
-                                <div class="well">
-                                    <form class="form">
-                                        <h4>Sign-up</h4>
-                                        <div class="input-group text-center">
-                                            <input class="form-control input-lg" placeholder="Enter your email address" type="text">
-                                            <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>
-                                        </div>
-                                    </form>
-                                </div>
+<%--                                <div class="well">--%>
+<%--                                    <form class="form">--%>
+<%--                                        <h4>Sign-up</h4>--%>
+<%--                                        <div class="input-group text-center">--%>
+<%--                                            <input class="form-control input-lg" placeholder="Enter your email address" type="text">--%>
+<%--                                            <span class="input-group-btn"><button class="btn btn-lg btn-primary" type="button">OK</button></span>--%>
+<%--                                        </div>--%>
+<%--                                    </form>--%>
+<%--                                </div>--%>
 
-                            </div>
+<%--                            </div>--%>
 
                         </div><!--/row-->
 

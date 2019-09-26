@@ -14,7 +14,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    UserService userService = new UserServiceImpl();
     List<Post> userPosting = (List<Post>)session.getAttribute("relatedPosts");
     Long postId = Long.parseLong(request.getParameter("postId"));
     response.setContentType("image/gif");

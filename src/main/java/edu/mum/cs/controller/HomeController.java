@@ -7,7 +7,6 @@ import edu.mum.cs.service.AdsService;
 import edu.mum.cs.service.UserService;
 import edu.mum.cs.service.impl.AdsServiceImpl;
 import edu.mum.cs.service.impl.UserServiceImpl;
-import javafx.geometry.Pos;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -24,11 +23,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
-import java.util.Date;
 import java.util.List;
 
 
@@ -44,10 +43,11 @@ public class HomeController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         User userLoggedIn = (User) session.getAttribute("loggedInUser");
-        List<User> allUserListNotFollowed = userService.findAllActivatedUser(userLoggedIn);
-//        System.out.println(allUserListNotFollowed.size());
         List<Ads> adsList = adsService.findAllAds();
         List<Post> userRelatedPosts  = userService.findUserRelatedPosts(userLoggedIn);
+
+        List<User> allUserListNotFollowed = userService.findAllActivatedUser(userLoggedIn);
+
         request.setAttribute("allUserListNotFollowed", allUserListNotFollowed);
         request.setAttribute("adverts", adsList);
         session.setAttribute("relatedPosts", userRelatedPosts);

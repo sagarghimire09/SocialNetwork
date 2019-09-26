@@ -21,6 +21,7 @@
             <li><a href="profile"><i class="glyphicon glyphicon-user"></i> Profile</a></li>
             <li><a href="follower"><i class="glyphicon glyphicon-paperclip"></i> Followers</a></li>
         </ul>
+
         <c:if test="${not empty allUserListNotFollowed}">
             <hr><p>All Users</p>
             <c:forEach items="${allUserListNotFollowed}" var="aUser">
@@ -29,10 +30,12 @@
                         <img src="resources/img/TM.jpg" class="img-display">
                         <a href="profile">${aUser.firstName} ${aUser.lastName}</a>
                         <a href="friendProfile?friendId=${aUser.userId}" class="btn btn-success">Follow</a>
+
                     </span>
                 </p>
             </c:forEach>
         </c:if>
+
         <ul class="list-unstyled hidden-xs" id="sidebar-footer">
             <li>
                 <a href="#"><h3>Social</h3> <i class="glyphicon glyphicon-heart-empty"></i> Network</a>
@@ -43,7 +46,6 @@
 </c:if>
 
 <c:if test="${loggedInUser.role == 'ROLE_ADMIN'}">
-    <c:set var="divcol" scope="page" value="col-sm-10"></c:set>
 <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
     <ul class="nav">

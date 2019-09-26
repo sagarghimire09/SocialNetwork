@@ -131,7 +131,7 @@
             <%@ include file="partials/leftsidebar.jsp" %>
             <!-- /sidebar -->
             <!-- main right col -->
-            <div class="column ${not empty divcol ? divcol : 'col-sm-12'} col-xs-11" id="main">
+            <div class="column col-sm-10 col-xs-11" id="main">
                 <!-- top nav -->
                 <%@ include file="partials/topnav.jsp" %>
                 <!-- /top nav -->
@@ -163,25 +163,35 @@
                                                             </div>
                                                             <div class="media-body">
                                                                 <div class="pull-right">
-                                                                    <c:choose>
-                                                                        <c:when test="${fn:contains(follower.getFollowers(), loggedInUser)}">
-                                                                            <form action="unfollow" method="post">
-                                                                                <input type="hidden" name="userId" value="${loggedInUserId}">
-                                                                                <input type="hidden" name="followingId" value="${follower.userId}">
-                                                                                <button type="submit" class="btn btn-success btn-default btn-sm waves-effect waves-light">
-                                                                                    <i class="icon md-check" aria-hidden="true"></i>Following</button>
-                                                                            </form>
-                                                                        </c:when>
-                                                                        <c:otherwise>
-                                                                            <form action="follow" method="post">
-                                                                                <input type="hidden" name="userId" value="${loggedInUserId}">
-                                                                                <input type="hidden" name="followingId" value="${follower.userId}">
-                                                                                <button type="submit" class="btn btn-warning btn-default btn-sm waves-effect waves-light">
-                                                                                    <i class="icon md-check" aria-hidden="true"></i>Follow</button>
-                                                                            </form>
-                                                                        </c:otherwise>
-                                                                    </c:choose>
+
+                                                                    <c:forEach var="following" items="${followingsId}" >
+
+
+                                                                        <c:choose>
+                                                                            <c:when test="${follower.userId == following}">
+                                                                                <form action="follower" method="post">
+                                                                                    <input type="hidden" name="userId" value="${loggedInUserId}">
+                                                                                    <input type="hidden" name="followingId" value="${follower.userId}">
+                                                                                    <button type="submit" class="btn btn-success btn-default btn-sm waves-effect waves-light">
+                                                                                        <i class="icon md-check" aria-hidden="true"></i>Unfollow</button>
+                                                                                </form>
+                                                                            </c:when>
+                                                                            <c:otherwise>
+                                                                                <form action="follower" method="post">
+                                                                                    <input type="hidden" name="userId" value="${loggedInUserId}">
+                                                                                    <input type="hidden" name="followingId" value="${follower.userId}">
+                                                                                    <button type="submit" class="btn btn-warning btn-default btn-sm waves-effect waves-light">
+                                                                                        <i class="icon md-check" aria-hidden="true"></i>Follow</button>
+                                                                                </form>
+                                                                            </c:otherwise>
+                                                                        </c:choose>
+
+                                                                    </c:forEach>
+
+
                                                                 </div>
+
+
                                                                 <div><a class="name" href="friendProfile?friendId=${follower.userId}">${follower.firstName} ${follower.lastName}</a></div>
                                                                 <small>${follower.email}</small>
                                                             </div>

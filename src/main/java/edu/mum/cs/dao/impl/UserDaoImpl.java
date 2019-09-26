@@ -29,8 +29,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserByEmail(String email) {
         Session session = sessionFactory.openSession();
-//        User user = (User) session.createQuery("from User where email='" + email + "'").getSingleResult();
-
         User user = (User) session.createQuery("from User where email='"+email+"'").setMaxResults(1).stream().findFirst().orElse(null);
 
         session.close();
