@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <c:if test="${loggedInUser.role == 'ROLE_ADMIN'}">
+    <c:set var="divcol" scope="page" value="col-sm-10"></c:set>
 <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
     <ul class="nav">

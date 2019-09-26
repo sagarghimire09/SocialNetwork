@@ -13,17 +13,16 @@
                 Update Status
             </div>
             <div class="modal-body">
-                <form class="form center-block" action="post/newPost" method="post">
+                <form class="form center-block">
                     <div class="form-group">
-                        <textarea class="form-control input-lg" name="body" autofocus="" placeholder="What do you want to share?"></textarea>
+                        <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <div>
-                    <button class="btn btn-primary btn-sm" type="submit" aria-hidden="true">Post</button>
-                    <ul class="pull-left list-inline"><li><label for="file-upload" class="custom-file-upload"><i class="glyphicon glyphicon-upload"></i></label><input id="file-upload" type="file" name="image"/></li>
-                        <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+                    <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+                    <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
                 </div>
             </div>
         </div>

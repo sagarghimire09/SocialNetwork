@@ -30,6 +30,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getActiveUserByEmail(String email) {
+        Session session = sessionFactory.openSession();
+        User user = (User) session.createQuery("from User where email='"+email+"' and status = true ").setMaxResults(1).stream().findFirst().orElse(null);
+        session.close();
+        return user;
+    }
+
+    @Override
     public Long saveUser(User user) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();

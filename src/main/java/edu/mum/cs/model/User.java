@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -25,10 +26,13 @@ public class User implements Serializable {
     private String designation;
     private LocalDate birthDate;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_follower", joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "follower_id"))
-    private List<User> followers;
+    private Set<User> followers;
+
+    @ManyToMany(mappedBy = "followers")
+    private Set<User> following;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Post> posts;
@@ -135,13 +139,17 @@ public class User implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public List<User> getFollowers() {
+    public Set<User> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(List<User> followers) {
+    public void setFollowers(Set<User> followers) {
         this.followers = followers;
     }
+
+    public Set<User> getFollowing() { return following; }
+
+    public void setFollowing(Set<User> following) { this.following = following; }
 
     public List<Post> getPosts() {
         return posts;

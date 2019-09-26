@@ -40,7 +40,6 @@ public class LoginController extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("login.jsp");
             rd.forward(req, resp);
         }
-
     }
 
 }

@@ -8,12 +8,12 @@ import edu.mum.cs.service.FollowerService;
 public class FollowerServiceImpl implements FollowerService {
     FollowerDao followerDao = new FollowerDaoImpl();
     @Override
-    public void follow(User user, User following) {
-        followerDao.follow(user, following);
+    public void follow(User following) {
+        followerDao.follow(following);
     }
 
     @Override
-    public void unfollow(User user, User following) {
-        followerDao.unfollow(user, following);
+    public void unfollow(User following) {
+        followerDao.unfollow(following);
     }
 }

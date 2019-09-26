@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User authenticate(User user) {
-        User verifiedUser = userDao.getUserByEmail(user.getEmail());
+        User verifiedUser = userDao.getActiveUserByEmail(user.getEmail());
         if(verifiedUser != null && verifiedUser.getPassword().equals(user.getPassword())) {
             return verifiedUser;
         }
