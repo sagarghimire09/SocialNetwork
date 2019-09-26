@@ -31,7 +31,7 @@
             <%@ include file="partials/leftsidebar.jsp" %>
             <!-- /sidebar -->
             <!-- main right col -->
-            <div class="column col-sm-10 col-xs-11" id="main">
+            <div class="column ${not empty divcol ? divcol : 'col-sm-12'} col-xs-11" id="main">
                 <!-- top nav -->
                 <%@ include file="partials/topnav.jsp" %>
                 <!-- /top nav -->
@@ -66,7 +66,9 @@
                                                 </ul>
                                             </div>
                                             <div class="col-md-3">
-                                                <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>
+                                                <c:if test="${user.role != ROLE_ADMIN}">
+                                                    <div style="margin: 10px;"><a href="follower" class="btn btn-success">Followers</a></div>
+                                                </c:if>
                                                 <div style="margin: 10px;"><a href="#" class="btn btn-primary">About</a></div>
                                                 <div style="margin: 10px;"><a href="profile-edit" class="btn btn-warning">Edit</a></div>
                                             </div>
@@ -154,29 +156,7 @@
 
 
 <!--post modal-->
-<div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                Update Status
-            </div>
-            <div class="modal-body">
-                <form class="form center-block">
-                    <div class="form-group">
-                        <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <div>
-                    <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-                    <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<%@ include file="partials/postmodal.jsp" %>
 
 <script type="text/javascript" src="resources/js/jquery.js"></script>
 <script type="text/javascript" src="resources/js/bootstrap.js"></script>

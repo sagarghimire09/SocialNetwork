@@ -12,18 +12,21 @@ import java.util.List;
 public class FollowerDaoImpl implements FollowerDao {
     SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     @Override
-    public void follow(User user, User following) {
+    public void follow(User following) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        following.getFollowers().add(user);
         session.update(following);
         transaction.commit();
         session.close();
     }
 
     @Override
-    public void unfollow(User user, User following) {
-
+    public void unfollow(User following) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(following);
+        transaction.commit();
+        session.close();
     }
 
 
